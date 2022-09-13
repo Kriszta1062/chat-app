@@ -14,25 +14,24 @@
     <div class="room" *ngFor="let room of rooms">
         
         <div class="active" *ngIf="room.active">
-            <fa-icon  [ngStyle]="{'color': '#a2d19d'}" [icon]="faCircle"></fa-icon>
-
-            <img src="{{room.pic}}" alt="{{room.name}}">
+            <img [ngStyle]="{'boxShadow': '0 0 5px green'}"  src="{{room.pic}}" alt="{{room.name}}">
             <div class="infos">
                 <div>{{room.name}}</div>
                 <div class="members">{{room.members}}</div>
             </div>
-            <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faTimes"></fa-icon>
+            <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faPencil"></fa-icon>
         </div>
 
         <div class="not-active" *ngIf="!room.active">
-            <fa-icon  [ngStyle]="{'color': '#c96161'}" [icon]="faCircle"></fa-icon>
-
-            <img src="{{room.pic}}" alt="{{room.name}}">
+            <img  [ngStyle]="{'boxShadow': '0 0 5px red'}" src="{{room.pic}}" alt="{{room.name}}">
             <div class="infos">
                 <div>{{room.name}}</div>
                 <div class="members">{{room.members}}</div>
             </div>
-            <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faTimes"></fa-icon>
+            <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faPencil"></fa-icon>
         </div>
     </div>
 </div>
+
+
+<!-- traversi - tutorial1 35:11 ng if ellenorzes -->

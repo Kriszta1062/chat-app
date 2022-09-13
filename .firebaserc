@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "toak-b56e5": {
+      "hosting": {
+        "chat-app": [
+          "toak-b56e5"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "toak-b56e5"
+  }
+}
