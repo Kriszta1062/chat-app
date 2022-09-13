@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -23,6 +23,8 @@ export class RoomsComponent implements OnInit {
   rooms: Room[] = [];
   editState: boolean = false;
   roomToEdit?: Room;
+
+  @Output() addButtonActive: boolean = false;
 
   constructor(private roomService: RoomService) { 
 

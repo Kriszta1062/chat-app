@@ -8,8 +8,13 @@
         </button>
     </div>
     <div class="create">
-        <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faPlus"></fa-icon>
-        <div class="text"> Create new group</div>
+        <div *ngIf="!addButtonActive" class="close-btn">
+            <fa-icon (click)="addButtonActive=true" [ngStyle]="{'color': '#1d4226'}" [icon]="faPlus"></fa-icon>
+        </div>
+        <div *ngIf="addButtonActive">
+            <app-add-room></app-add-room>
+        </div>
+        <div *ngIf="!addButtonActive" class="text"> Create new group</div>
     </div>
 
 <!-- rooms -->
@@ -31,10 +36,11 @@
         </a>
         <div *ngIf="editState && roomToEdit?.id == room.id" class="container">
             <div class="form">
+                <i (click)="clearState()" class="close-icon">
+                    <fa-icon [ngStyle]="{'color': 'red'}" [icon]="faTimes"></fa-icon>
+                </i>
                 <form (ngSubmit)="updateRoom(room)" >
-                    <i (click)="clearState()">
-                        <fa-icon [ngStyle]="{'color': 'red'}" [icon]="faTimes"></fa-icon>
-                    </i>
+                   
                     <div class="input">
                         <label>Name</label>
                         <input 
@@ -71,8 +77,8 @@
                             name="members"
                         >
                     </div>
-                    <input type="submit" value="Update" class="submit">
-                    <input (click)="deleteRoom($event, room)" type="submit" value="Delete" class="submit">
+                    <input type="submit" value="Update" class="submit-button">
+                    <input (click)="deleteRoom($event, room)" type="submit" value="Delete" class="submit-button">
                 </form>
             </div>
         </div>

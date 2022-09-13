@@ -11,7 +11,7 @@ img{
     margin: 20px;
     box-shadow: 0 0 10px black;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: row;
     font-size: medium;
     font-weight: bold;
@@ -32,6 +32,7 @@ img{
     flex-direction: row;
     padding: 10px;
     border-radius: 50px;
+    justify-content: center;
 }
 
 .create{
@@ -77,4 +78,48 @@ img{
     border: none;
     box-shadow: 0 0 2px black;
     margin: 0 5px;
+}
+
+
+.input{
+    padding: 5px;
+    margin: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    color: #1d4226;
+    font-weight: bold;
+
+}
+
+.title{
+    text-align: center;
+    color: #1d4226;
+}
+
+
+label{
+    padding: 0 10px;
+}
+
+.submit-button{
+    background-color: white;
+    color: #1d4226;
+    font-size: 15px;
+    padding: 5px 10px;
+    margin: 10px;
+    box-shadow: 0 0 3px black;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-container{
+    text-align: center;
+    align-items: center;
+}
+
+.close-icon{
+    display: flex;
+    justify-content: right;
 }

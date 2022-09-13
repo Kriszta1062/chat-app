@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RoomService } from '../services/room.service';
 import { Room } from '../models/room';
+import {faTimes} from '@fortawesome/free-solid-svg-icons';;
 
 
 @Component({
@@ -9,6 +10,11 @@ import { Room } from '../models/room';
   styleUrls: ['./add-room.component.css']
 })
 export class AddRoomComponent implements OnInit {
+
+  faTimes=faTimes;
+
+  @Input() addButtonActive?: boolean;
+  
   room: Room = {
     name: '',
     members: [],
@@ -33,6 +39,13 @@ export class AddRoomComponent implements OnInit {
       this.room.active = true;
       
     }
+  }
+
+  
+  clearAddState(){
+    this.addButtonActive = false;
+    console.log(this.addButtonActive);
+    
   }
 
 }
