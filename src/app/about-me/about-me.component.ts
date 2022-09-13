@@ -19,7 +19,7 @@ export class AboutMeComponent implements OnInit {
   faHome=faHome;
 
   users: User[] = [];
-  currentUserId?: string;
+  currentUserId?: string = "lMsbqeIMduV2d9mHA4CF";
 
 
   constructor(private userService: UserService) { }

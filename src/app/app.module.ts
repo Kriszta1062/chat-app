@@ -20,6 +20,8 @@ import { ConversationComponent } from './conversation/conversation.component';
 import { RoomService } from './services/room.service';
 import { UserService } from './services/user.service';
 import { AddRoomComponent } from './add-room/add-room.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { AddRoomComponent } from './add-room/add-room.component';
     RoomsComponent,
     AboutMeComponent,
     ConversationComponent,
-    AddRoomComponent
+    AddRoomComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

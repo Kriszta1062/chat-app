@@ -13,20 +13,18 @@ export class UserService {
   userDoc?: AngularFirestoreDocument<User>;
 
   constructor(public afs: AngularFirestore) {
-    this.users = this.afs.collection<User>('Users').valueChanges();
-    // this.usersCollection = this.afs.collection<User>('Users', (ref) => 
-    //   ref.orderBy('name', 'asc')
-    // ); //order by alphabet
+
+    this.usersCollection = this.afs.collection<User>('Users');
     
-    // this.users = this.usersCollection.snapshotChanges().pipe(
-    //   map((changes) => {
-    //     return changes.map((a) => {
-    //       const data = a.payload.doc.data() as User;
-    //       data.id=a.payload.doc.id;
-    //       return data;
-    //     })
-    //   })
-    // );
+    this.users = this.usersCollection.snapshotChanges().pipe(
+      map((changes) => {
+        return changes.map((a) => {
+          const data = a.payload.doc.data() as User;
+          data.id=a.payload.doc.id;
+          return data;
+        })
+      })
+    );
   }
 
   getUsers(){
