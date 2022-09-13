@@ -1,21 +1,22 @@
 <div class="container">
     <img src="/assets/images/profile.jpg">
     <div class="details" >
-        <h2>Kriszta Fejes</h2>
-        <div class="info">
-            <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faMailBulk"></fa-icon>
-
-            kriszta1062@gmail.com</div>
-        <div class="info">
-                <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faPhone"></fa-icon>
-
-            +36 30 616 6172</div>
-        <div class="info">
-                <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faCake"></fa-icon>
-
-            2000.09.25</div>
-        <div class="info">
-                <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faHome"></fa-icon>
-            Szeged</div>
-    </div>
+        <div *ngFor="let user of users">
+            <!-- <div *ngIf="user.id == currentUserId"> -->
+                <h2>{{user.firstName user.lastName}</h2>
+                <div class="info">
+                    <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faMailBulk"></fa-icon>
+                    {{user.email}}
+                </div>
+                <div class="info">
+                        <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faCake"></fa-icon>
+                    {{user.birth}}
+                </div>
+                <div class="info">
+                        <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faHome"></fa-icon>
+                    {{user.location}}
+                </div>
+            </div>
+        </div>
+        
 </div>

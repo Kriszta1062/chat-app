@@ -18,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ConversationComponent } from './conversation/conversation.component';
 
 import { RoomService } from './services/room.service';
+import { UserService } from './services/user.service';
 import { AddRoomComponent } from './add-room/add-room.component';
 
 
@@ -42,7 +43,7 @@ import { AddRoomComponent } from './add-room/add-room.component';
     FormsModule,
 
   ],
-  providers: [RoomService],
+  providers: [RoomService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

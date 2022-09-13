@@ -3,6 +3,8 @@ import { faMailBulk } from '@fortawesome/free-solid-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faCake } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { UserService } from '../services/user.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-about-me',
@@ -16,22 +18,19 @@ export class AboutMeComponent implements OnInit {
   faCake=faCake;
   faHome=faHome;
 
-  users = [
-    {
-      id: 1,
-      name: 'Kriszta Fejes',
-      email: 'kriszta1062@gmail.com',
-      phone: '306166172', 
-      birth: '2000.09.25',
-      location: 'Szeged',
-      picture: '/assets/images/cat.png'
+  users: User[] = [];
+  currentUserId?: string;
 
-    }
-  ]
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.getUsers().subscribe(users => {
+      // this.users = users;
+      console.log(this.users);
+
+    })
+    
   }
 
 }
