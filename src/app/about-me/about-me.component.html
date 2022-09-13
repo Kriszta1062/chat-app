@@ -3,7 +3,7 @@
     <div class="details" >
         <div *ngFor="let user of users">
             <!-- <div *ngIf="user.id == currentUserId"> -->
-                <h2>{{user.firstName user.lastName}</h2>
+                <h2>{{user.firstName}} {{user.lastName}}</h2>
                 <div class="info">
                     <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faMailBulk"></fa-icon>
                     {{user.email}}
