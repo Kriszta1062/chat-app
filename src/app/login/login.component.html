@@ -1,1 +1,29 @@
-<p>login works!</p>
+<div class="container">
+    <h3 class="title">
+        Registration
+    </h3>
+    <div class="form">
+        <form (ngSubmit)="onSubmit()" >
+            <div class="input">
+                <label>First name: </label>
+                <input 
+                    type="text"
+					placeholder="Add first name"
+					name="firstName"
+                >
+            </div>
+            <div class="input">
+                <label>Last name: </label>
+                <input 
+                    type="text"
+					placeholder="Add last name"
+					name="lastName"
+                >
+            </div>
+			
+			<div class="btn-container">
+				<input type="submit" value="Log in" class="submit-button">
+			</div>
+        </form>
+    </div>
+</div>
