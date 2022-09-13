@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { RoomService } from '../services/room.service';
 import { Room } from '../models/room';
 
@@ -18,9 +18,11 @@ export class RoomsComponent implements OnInit {
   faPencil=faPencil; // got the idea from traversy media
   faSearch=faSearch;
   faPlus=faPlus;
-  faCircle=faCircle;
+  faTimes=faTimes;
 
   rooms: Room[] = [];
+  editState: boolean = false;
+  roomToEdit?: Room;
 
   constructor(private roomService: RoomService) { 
 
@@ -28,12 +30,30 @@ export class RoomsComponent implements OnInit {
 
   ngOnInit(): void {
     this.roomService.getRooms().subscribe(rooms => {
-      // console.log(rooms);
       this.rooms = rooms;
       
     })
   }
 
+  deleteRoom(event: any, room: Room){
+    this.roomService.deleteRoom(room);
+  }
+
+  editRoom(event: any, room: Room){
+    this.editState = true;
+    this.roomToEdit = room;
+    
+  }
+
+  updateRoom(room: Room){
+    this.roomService.updateRoom(room);
+    this.clearState();
+  }
+
+  clearState(){
+    this.editState = false;
+    this.roomToEdit = undefined;
+  }
 
 }
 

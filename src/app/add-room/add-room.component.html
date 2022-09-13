@@ -1,0 +1,46 @@
+<div class="container">
+    <h3 class="title">
+        Add room
+    </h3>
+    <div class="form">
+        <form (ngSubmit)="onSubmit()" >
+            <div class="input">
+                <label>Name</label>
+                <input 
+                    type="text"
+					placeholder="Add name"
+					[(ngModel)] = "room.name"
+					name="name"
+                >
+            </div>
+			<div class="input">
+                <label>Access</label>
+                <input 
+                    type="text"
+					placeholder="Add access"
+					[(ngModel)] = "room.access"
+					name="access"
+                >
+            </div>
+			<div class="input">
+                <label>Picture</label>
+                <input 
+                    type="text"
+					placeholder="Add a picture"
+					[(ngModel)] = "room.pic"
+					name="pic"
+                >
+            </div>
+			<div class="input">
+                <label>Members</label>
+                <input 
+                    type="text"
+					placeholder="Add members"
+					[(ngModel)] = "room.members"
+					name="members"
+                >
+            </div>
+			<input type="submit" value="Submit">
+        </form>
+    </div>
+</div>

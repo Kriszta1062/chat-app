@@ -7,6 +7,7 @@ import {AngularFireAuthModule} from '@angular/fire/compat/auth';
 import {AngularFireStorageModule} from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ConversationComponent } from './conversation/conversation.component';
 
 import { RoomService } from './services/room.service';
+import { AddRoomComponent } from './add-room/add-room.component';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { RoomService } from './services/room.service';
     NavComponent,
     RoomsComponent,
     AboutMeComponent,
-    ConversationComponent
+    ConversationComponent,
+    AddRoomComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { RoomService } from './services/room.service';
     AngularFireStorageModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
+    FormsModule,
 
   ],
   providers: [RoomService],
