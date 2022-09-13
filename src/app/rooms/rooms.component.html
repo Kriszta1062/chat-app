@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="search">
+        <form action="" class="">
+            <input type="text" placeholder="Search" id="search-form">
+        </form>
+        <button class="search-button">
+            <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faSearch"></fa-icon>
+        </button>
+    </div>
+    <div class="create">
+        <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faPlus"></fa-icon>
+        <div class="text"> Create new group</div>
+    </div>
+    <div class="room" *ngFor="let room of rooms">
+        
+        <div class="active" *ngIf="room.active">
+            <fa-icon  [ngStyle]="{'color': '#a2d19d'}" [icon]="faCircle"></fa-icon>
+
+            <img src="{{room.pic}}" alt="{{room.name}}">
+            <div class="infos">
+                <div>{{room.name}}</div>
+                <div class="members">{{room.members}}</div>
+            </div>
+            <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faTimes"></fa-icon>
+        </div>
+
+        <div class="not-active" *ngIf="!room.active">
+            <fa-icon  [ngStyle]="{'color': '#c96161'}" [icon]="faCircle"></fa-icon>
+
+            <img src="{{room.pic}}" alt="{{room.name}}">
+            <div class="infos">
+                <div>{{room.name}}</div>
+                <div class="members">{{room.members}}</div>
+            </div>
+            <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faTimes"></fa-icon>
+        </div>
+    </div>
+</div>

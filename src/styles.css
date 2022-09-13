@@ -1,0 +1,13 @@
+body{
+    background-image: url(/assets/images/background.jpg);
+    background-size: cover;
+}
+
+.container{
+    background-color: rgb(255, 255, 255, 0.788);
+    box-shadow: 0 0 10px black;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    padding: 20px;
+}
