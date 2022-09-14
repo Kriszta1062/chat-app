@@ -11,6 +11,7 @@ export class UserService {
   usersCollection?: AngularFirestoreCollection<User>;
   users: Observable<User[]>;
   userDoc?: AngularFirestoreDocument<User>;
+  // user: Observable<User>;
 
   constructor(public afs: AngularFirestore) {
 
@@ -27,7 +28,7 @@ export class UserService {
     );
   }
 
-  getUsers(){
+  getUsers():Observable<User[]>{
     return this.users;
   }
 

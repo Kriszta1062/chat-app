@@ -23,6 +23,7 @@ export class RoomsComponent implements OnInit {
   rooms: Room[] = [];
   editState: boolean = false;
   roomToEdit?: Room;
+  
 
   @Output() addButtonActive: boolean = false;
 

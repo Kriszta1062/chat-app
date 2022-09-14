@@ -1,28 +1,30 @@
 <div class="container">
     <h3 class="title">
-        Registration
+        Log in
     </h3>
     <div class="form">
         <form (ngSubmit)="onSubmit()" >
             <div class="input">
-                <label>First name: </label>
+                <label for="email">Email: </label>
                 <input 
                     type="text"
-					placeholder="Add first name"
-					name="firstName"
+					name="email"
+                    [(ngModel)] = "email"
+                    required
                 >
             </div>
             <div class="input">
-                <label>Last name: </label>
+                <label>Password: </label>
                 <input 
-                    type="text"
-					placeholder="Add last name"
-					name="lastName"
+                    type="password"
+					name="password"
+                    [(ngModel)] = "password"
+                    required
                 >
             </div>
 			
 			<div class="btn-container">
-				<input type="submit" value="Log in" class="submit-button">
+				<input type="submit" value="Login" class="submit-button">
 			</div>
         </form>
     </div>

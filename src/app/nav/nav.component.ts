@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
-
+import { faSignOut } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-nav',
@@ -12,6 +12,7 @@ export class NavComponent implements OnInit {
 
   faUser=faUser;
   faCog=faCog;
+  faSignOut=faSignOut
 
   constructor() { }
 

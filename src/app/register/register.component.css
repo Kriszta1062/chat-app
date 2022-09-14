@@ -41,3 +41,11 @@ label{
     display: flex;
     justify-content: right;
 }
+
+.main{
+    justify-content: center;
+}
+
+.container{
+    margin: 0px;
+}

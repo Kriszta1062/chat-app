@@ -11,3 +11,11 @@ body{
     margin: 30px;
     padding: 20px;
 }
+
+.main{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

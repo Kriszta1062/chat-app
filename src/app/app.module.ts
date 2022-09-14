@@ -22,6 +22,8 @@ import { UserService } from './services/user.service';
 import { AddRoomComponent } from './add-room/add-room.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { LoginComponent } from './login/login.component';
     ConversationComponent,
     AddRoomComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
 
   ],
-  providers: [RoomService, UserService],
+  providers: [RoomService, UserService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

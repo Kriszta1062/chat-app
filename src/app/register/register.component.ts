@@ -16,8 +16,7 @@ export class RegisterComponent implements OnInit {
     email: '',
     active: true,
     birth:'',
-    password: '',
-    salt:'kfnjdnbndohjdpiohj',
+    // password: '',
     rooms: [], //id-s of the rooms we have acces to  
     pic: '',
   }
@@ -36,8 +35,7 @@ export class RegisterComponent implements OnInit {
     this.user.email= '';
     this.user.active= true;
     this.user.birth='';
-    this.user.password= '';
-    this.user.salt='kfnjdnbndohjdpiohj';
+    // this.user.password= '';
     this.user.rooms= []; //id-s of the rooms we have acces to  
     this.user.pic= '';
     console.log("registered");
