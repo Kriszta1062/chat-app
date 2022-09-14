@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
     color:#1d4226;
-    padding: 0 15px;
+    padding-right: 15px;
 }
 
 .menu{
@@ -26,4 +26,8 @@
     font-size: large;
     color: #1d4226;
     font-weight: bold;
+}
+
+.logo{
+    width: 100px;
 }

@@ -20,6 +20,10 @@ export class AuthService {
   getAuth(){
     return this.afAuth.authState.pipe(map((auth: any) => auth))
   }
+
+  logout(){
+    this.afAuth.signOut();
+  }
 }
 
 // this.afAuth.auth.signInWithEmailAndPassword(email, password).then((userData: unknown) => resolve(userData), 

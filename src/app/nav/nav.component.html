@@ -1,14 +1,14 @@
 <div class="nav-bar">
-    <h1 class="title" >Toak</h1>
-    <div class="menu">
+    <img class="logo" src="/assets/images/logo.jpg" alt="Toak">
+    <div class="menu" *ngIf="isLoggedIn">
         <!-- <a class="option" href="" routerLink="/">
             <fa-icon [ngStyle]="{'color': '#1d4226'}" [icon]="faCog" ></fa-icon>
         </a> -->
         <a class="option" routerLink="/">
             <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faSignOut" ></fa-icon>
         </a>
-        <a class="option" routerLink="/profile">
+        <!-- <a class="option" routerLink="/profile">
             <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faUser" ></fa-icon>
-        </a>
+        </a> -->
     </div>
 </div>
