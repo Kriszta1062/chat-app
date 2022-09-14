@@ -8,4 +8,5 @@ export interface User{
     birth:string;
     rooms: string[]; //id-s of the rooms we have acces to  
     pic: string;
+    password: string;
   }

@@ -10,77 +10,23 @@
     <div class="form">
         <form (ngSubmit)="onSubmit()" >
             <div class="input">
-                <label>First name: </label>
-                <input 
-                    type="text"
-					placeholder="Add first name"
-					[(ngModel)] = "user.firstName"
-					name="firstName"
-                >
-            </div>
-            <div class="input">
-                <label>Last name: </label>
-                <input 
-                    type="text"
-					placeholder="Add last name"
-					[(ngModel)] = "user.lastName"
-					name="lastName"
-                >
-            </div>
-			<div class="input">
-                <label>Location: </label>
-                <input 
-                    type="text"
-					placeholder="Add location"
-					[(ngModel)] = "user.location"
-					name="location"
-                >
-            </div>
-			<div class="input">
-                <label>Picture: </label>
-                <input 
-                    type="text"
-					placeholder="Add a picture"
-					[(ngModel)] = "user.pic"
-					name="pic"
-                >
-            </div>
-			<div class="input">
-                <label>Rooms: </label>
-                <input 
-                    type="text"
-					placeholder="Add rooms"
-					[(ngModel)] = "user.rooms"
-					name="rooms"
-                >
-            </div>
-            <div class="input">
                 <label>Email: </label>
                 <input 
                     type="text"
 					placeholder="Add email"
-					[(ngModel)] = "user.email"
+					[(ngModel)] = "email"
 					name="email"
                 >
             </div>
             <div class="input">
-                <label>Birth: </label>
-                <input 
-                    type="text"
-					placeholder="Add birth"
-					[(ngModel)] = "user.birth"
-					name="birth"
-                >
-            </div>
-            <!-- <div class="input">
                 <label>Password: </label>
                 <input 
                     type="text"
 					placeholder="Add password"
-					[(ngModel)] = "user.password"
+					[(ngModel)] = "password"
 					name="password"
                 >
-            </div> -->
+            </div>
 			<div class="btn-container">
 				<input type="submit" value="Submit" class="submit-button">
 			</div>
@@ -90,3 +36,84 @@
 
 </div>
 
+
+<!-- 
+<div class="form">
+    <form (ngSubmit)="onSubmit()" >
+        <div class="input">
+            <label>First name: </label>
+            <input 
+                type="text"
+                placeholder="Add first name"
+                [(ngModel)] = "user.firstName"
+                name="firstName"
+            >
+        </div>
+        <div class="input">
+            <label>Last name: </label>
+            <input 
+                type="text"
+                placeholder="Add last name"
+                [(ngModel)] = "user.lastName"
+                name="lastName"
+            >
+        </div>
+        <div class="input">
+            <label>Location: </label>
+            <input 
+                type="text"
+                placeholder="Add location"
+                [(ngModel)] = "user.location"
+                name="location"
+            >
+        </div>
+        <div class="input">
+            <label>Picture: </label>
+            <input 
+                type="text"
+                placeholder="Add a picture"
+                [(ngModel)] = "user.pic"
+                name="pic"
+            >
+        </div>
+        <div class="input">
+            <label>Rooms: </label>
+            <input 
+                type="text"
+                placeholder="Add rooms"
+                [(ngModel)] = "user.rooms"
+                name="rooms"
+            >
+        </div>
+        <div class="input">
+            <label>Email: </label>
+            <input 
+                type="text"
+                placeholder="Add email"
+                [(ngModel)] = "user.email"
+                name="email"
+            >
+        </div>
+        <div class="input">
+            <label>Birth: </label>
+            <input 
+                type="text"
+                placeholder="Add birth"
+                [(ngModel)] = "user.birth"
+                name="birth"
+            >
+        </div>
+        <div class="input">
+            <label>Password: </label>
+            <input 
+                type="text"
+                placeholder="Add password"
+                [(ngModel)] = "user.password"
+                name="password"
+            >
+        </div>
+        <div class="btn-container">
+            <input type="submit" value="Submit" class="submit-button">
+        </div>
+    </form>
+</div> -->

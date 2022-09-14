@@ -24,7 +24,24 @@ export class AuthService {
   logout(){
     this.afAuth.signOut();
   }
+
+  // register(email:string, password:string, location:string, firstName:string, lastName:string, birth:string, pic:string){
+  //   return new Promise((resolve, reject) => {
+  //     this.afAuth.createUserWithEmailAndPassword(email, password)
+  //     .then((userData: unknown) => resolve(userData), 
+  //       (err: any) => reject(err))
+  //   })
+  // }
+
+  register(email:string, password:string){
+    return new Promise((resolve, reject) => {
+      this.afAuth.createUserWithEmailAndPassword(email, password)
+      .then((userData: unknown) => resolve(userData), 
+        (err: any) => reject(err))
+    })
+  }
 }
+
 
 // this.afAuth.auth.signInWithEmailAndPassword(email, password).then((userData: unknown) => resolve(userData), 
 //         (err: any) => reject(err))
