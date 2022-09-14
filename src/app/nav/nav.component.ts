@@ -35,4 +35,10 @@ export class NavComponent implements OnInit {
     })
   }
 
+  onLogoutClick(){
+    this.authService.logout();
+    //user active change false
+    this.router.navigate(['/'])
+  }
+
 }

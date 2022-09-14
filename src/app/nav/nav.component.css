@@ -31,3 +31,19 @@
 .logo{
     width: 100px;
 }
+
+.logo-out{
+    width: 100px;
+}
+
+.nav-bar-out{
+    background-color: rgb(255, 255, 255, 0.788);
+    box-shadow: 0 0 10px black;
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+    align-items: center;
+    color:#1d4226;
+    padding-right: 15px;
+    justify-content: center;
+}
