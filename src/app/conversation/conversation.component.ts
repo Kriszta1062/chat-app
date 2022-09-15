@@ -13,17 +13,18 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 export class ConversationComponent implements OnInit {
 
   faTimes=faTimes;
-
   chosedRoomId?: string;
   @Input() loggedInUser: any ;
-  
   messages: Message[] = [];
 
-  currentTime!: Date;
+  currentTime = new Date();
+  
+  time= this.currentTime.getHours() + ':' + this.currentTime.getMinutes();
 
+  
   message: Message = {
     text: '',
-    time: '12:50', // current date
+    time:  this.time, // current date
     userId: '',
     roomId: '',
   }
@@ -42,7 +43,7 @@ export class ConversationComponent implements OnInit {
     if(this.message.text != ''){
       this.messageService.addMessage(this.message);
       this.message.text = '';
-      this.message.time = '';
+      this.message.time = this.time;
       this.message.userId = '';
       this.message.roomId = '';
       
