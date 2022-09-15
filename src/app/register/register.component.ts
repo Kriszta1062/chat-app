@@ -18,7 +18,6 @@ export class RegisterComponent implements OnInit {
   password!:string;
 
    user: User = {
-     id:'',
      firstName:'',
      lastName:'',
      active: true,
@@ -34,17 +33,18 @@ export class RegisterComponent implements OnInit {
   }
 
 onSubmit(){ // pop up messages needed
-  this.authService.register(this.email, this.password).then(user => {
+
+  this.authService.register(this.email, this.password).then(res => {
     this.router.navigate(['/profile']);
     
-    if(this.user.firstName != '' && this.user.lastName != '' && this.user.pic != '' ){
+    if(this.user.firstName != '' && this.user.lastName != '' && this.user.pic != '' && this.user.email != ''){
           this.userService.addUser(this.user);
           this.user.firstName='';
           this.user.lastName='';
           this.user.active= true;
           this.user.rooms= []; 
           this.user.pic= '';
-          this.user.email = this.email;
+          this.user.email = '';
         }
   }).catch(err => {
     console.log(err);
