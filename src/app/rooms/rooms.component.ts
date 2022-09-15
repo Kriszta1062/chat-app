@@ -41,10 +41,10 @@ export class RoomsComponent implements OnInit {
       this.rooms = rooms;
     })
 
-    this.userService.getUsers().subscribe((users: User[]) => {
-      this.users = users;
-    })
-    console.log(this.users);
+    // this.userService.getUsers().subscribe((users: User[]) => {
+    //   this.users = users;
+    // })
+    // console.log(this.users);
     
   }
 
