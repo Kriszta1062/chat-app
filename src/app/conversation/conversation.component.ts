@@ -19,12 +19,11 @@ export class ConversationComponent implements OnInit {
 
   currentTime = new Date();
   
-  time= this.currentTime.getHours() + ':' + this.currentTime.getMinutes();
 
   
   message: Message = {
     text: '',
-    time:  this.time, // current date
+    time:  this.currentTime.getHours() + ':' + this.currentTime.getMinutes(), // current date
     userId: '',
     roomId: '',
   }
@@ -43,7 +42,7 @@ export class ConversationComponent implements OnInit {
     if(this.message.text != ''){
       this.messageService.addMessage(this.message);
       this.message.text = '';
-      this.message.time = this.time;
+      this.message.time = this.currentTime.getHours() + ':' + this.currentTime.getMinutes();
       this.message.userId = '';
       this.message.roomId = '';
       
