@@ -8,6 +8,8 @@ import { Message } from '../models/message';
 })
 export class ConversationComponent implements OnInit {
 
+  chosedRoomId?: string;
+
   @Input() room: any;
 
     messages: Message[] = [
