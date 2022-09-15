@@ -12,7 +12,7 @@
             <fa-icon (click)="addButtonActive=true" [ngStyle]="{'color': '#1d4226'}" [icon]="faPlus"></fa-icon>
         </div>
         <div *ngIf="addButtonActive">
-            <app-add-room></app-add-room>
+            <app-add-room [addButtonActive]="addButtonActive"></app-add-room>
         </div>
         <div *ngIf="!addButtonActive" class="text"> Create new group</div>
     </div>

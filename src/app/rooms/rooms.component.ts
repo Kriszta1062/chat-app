@@ -29,7 +29,7 @@ export class RoomsComponent implements OnInit {
   users: User[] = [];
   
 
-  @Output() addButtonActive: boolean = false; //is output surely correct? 
+  addButtonActive: boolean = false; 
   userService: any;
 
   constructor(private roomService: RoomService, userService: UserService) { 

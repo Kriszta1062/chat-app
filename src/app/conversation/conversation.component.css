@@ -19,6 +19,8 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    width: 500px;
+
 }
 
 .texts{
@@ -35,4 +37,34 @@
 .cover{
     box-shadow: 0 0 10px black;
     margin-bottom: 15px;
+}
+
+.submit-button{
+    background-color: white;
+    color: #1d4226;
+    font-size: 15px;
+    padding: 5px 10px;
+    margin: 10px;
+    box-shadow: 0 0 3px black;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-container{
+    text-align: center;
+    align-items: center;
+}
+
+.input{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 255, 255, 0.788);
+    flex-direction: column;
+    margin: 30px;
+    height: 50px;
+}
+
+input{
+    height: 50px;
 }

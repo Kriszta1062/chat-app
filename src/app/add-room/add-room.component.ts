@@ -14,7 +14,7 @@ export class AddRoomComponent implements OnInit {
   faTimes=faTimes;
 
   @Input() addButtonActive?: boolean;
-  
+
   room: Room = {
     name: '',
     members: [],
@@ -37,15 +37,14 @@ export class AddRoomComponent implements OnInit {
       this.room.members = [];
       this.room.access = '';
       this.room.active = true;
-      
+
     }
   }
 
-  
+
   clearAddState(){
     this.addButtonActive = false;
     console.log(this.addButtonActive);
-    
   }
 
 }
