@@ -123,3 +123,7 @@ label{
     display: flex;
     justify-content: right;
 }
+
+.container{
+    width: 350px
+}
