@@ -34,6 +34,5 @@ export class UserService {
 
   addUser(user: User){
     this.usersCollection?.add(user);
-
   }
 }

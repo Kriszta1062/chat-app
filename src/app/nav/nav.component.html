@@ -1,13 +1,13 @@
 <div  *ngIf="isLoggedIn" class="nav-bar">
     <img class="logo" src="/assets/images/logo.jpg" alt="Toak">
-    <div class="menu">
-    
+    <div class="menu">    
         <a href=" " (click)="onLogoutClick()" class="option" >
             <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faSignOut" ></fa-icon>
         </a>
- 
         </div>
+
 </div>
 <div  *ngIf="!isLoggedIn" class="nav-bar-out">
     <img class="logo-out" src="/assets/images/logo.jpg" alt="Toak">
+
 </div>

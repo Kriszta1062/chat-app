@@ -16,6 +16,7 @@ export class AuthService {
         (err: any) => reject(err))
     })
 
+
   }
   getAuth(){
     return this.afAuth.authState.pipe(map((auth: any) => auth))
@@ -25,14 +26,6 @@ export class AuthService {
     this.afAuth.signOut();
   }
 
-  // register(email:string, password:string, location:string, firstName:string, lastName:string, birth:string, pic:string){
-  //   return new Promise((resolve, reject) => {
-  //     this.afAuth.createUserWithEmailAndPassword(email, password)
-  //     .then((userData: unknown) => resolve(userData), 
-  //       (err: any) => reject(err))
-  //   })
-  // }
-
   register(email:string, password:string){
     return new Promise((resolve, reject) => {
       this.afAuth.createUserWithEmailAndPassword(email, password)
@@ -40,6 +33,7 @@ export class AuthService {
         (err: any) => reject(err))
     })
   }
+
 }
 
 

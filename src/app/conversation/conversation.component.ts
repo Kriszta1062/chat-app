@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Message } from '../models/message';
 import { MessageService } from '../services/message.service';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+
+
 
 @Component({
   selector: 'app-conversation',
@@ -9,14 +12,18 @@ import { MessageService } from '../services/message.service';
 })
 export class ConversationComponent implements OnInit {
 
+  faTimes=faTimes;
+
   chosedRoomId?: string;
-  currentUserId?: string = "lMsbqeIMduV2d9mHA4CF";
+  @Input() loggedInUser: any ;
   
   messages: Message[] = [];
 
+  currentTime!: Date;
+
   message: Message = {
     text: '',
-    time: '',
+    time: '12:50', // current date
     userId: '',
     roomId: '',
   }
@@ -41,6 +48,10 @@ export class ConversationComponent implements OnInit {
       
     }
 
+  }
+
+  deleteMessage(event: any, message: Message){
+    this.messageService.deleteMessage(message);
   }
 
 }

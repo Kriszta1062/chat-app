@@ -5,6 +5,8 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { RoomService } from '../services/room.service';
 import { Room } from '../models/room';
+import { UserService } from '../services/user.service';
+import { User } from '../models/user';
 
 
 
@@ -23,19 +25,27 @@ export class RoomsComponent implements OnInit {
   rooms: Room[] = [];
   editState: boolean = false;
   roomToEdit?: Room;
+
+  users: User[] = [];
   
 
   @Output() addButtonActive: boolean = false; //is output surely correct? 
+  userService: any;
 
-  constructor(private roomService: RoomService) { 
+  constructor(private roomService: RoomService, userService: UserService) { 
 
   }
 
   ngOnInit(): void {
     this.roomService.getRooms().subscribe(rooms => {
       this.rooms = rooms;
-      
     })
+
+    this.userService.getUsers().subscribe((users: User[]) => {
+      this.users = users;
+    })
+    console.log(this.users);
+    
   }
 
   deleteRoom(event: any, room: Room){

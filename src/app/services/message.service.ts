@@ -14,7 +14,7 @@ export class MessageService {
 
   constructor(public afs: AngularFirestore) { 
     this.messagesCollection = this.afs.collection<Message>('Messages', (ref) => 
-      ref.orderBy('time', 'asc')
+      ref.orderBy('text', 'asc')
     ); //order by time
     
     this.messages = this.messagesCollection.snapshotChanges().pipe(
@@ -35,5 +35,10 @@ export class MessageService {
 
   addMessage(message: Message){
     this.messagesCollection?.add(message);
+  }
+
+  deleteMessage(message: Message){
+    this.messagesDoc = this.afs.doc(`Messages/${message.id}`);
+    this.messagesDoc.delete();
   }
 }

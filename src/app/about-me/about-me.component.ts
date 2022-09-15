@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { faMailBulk } from '@fortawesome/free-solid-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faCake } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from '../services/user.service';
 import { User } from '../models/user';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-about-me',
@@ -19,16 +20,17 @@ export class AboutMeComponent implements OnInit {
   faHome=faHome;
 
   users: User[] = [];
-  currentUserId?: string = "lMsbqeIMduV2d9mHA4CF";
+  authService: any;
+  @Input() loggedInUser: any;
 
-
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, authService: AuthService) { }
 
   ngOnInit(): void {
+  
     this.userService.getUsers().subscribe(users => {
       this.users = users;
     })
-    
+  
   }
 
 }

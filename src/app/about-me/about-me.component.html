@@ -1,9 +1,11 @@
 <div class="container">
-    <img src="/assets/images/profile.jpg">
     <div class="details" >
         <div *ngFor="let user of users">
-            <div *ngIf="user.id == currentUserId">
+            <div *ngIf="user.email == loggedInUser">
+                <img src="{{user.pic}}">
+
                 <h2>{{user.firstName}} {{user.lastName}}</h2>
+
             </div>
         </div>
     </div>

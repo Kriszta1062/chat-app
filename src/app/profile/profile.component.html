@@ -1,5 +1,5 @@
 <div class="main">
     <app-rooms></app-rooms>
-    <app-conversation></app-conversation>
-    <app-about-me></app-about-me>
+    <app-conversation [loggedInUser] = "loggedInUser"></app-conversation>
+    <app-about-me [loggedInUser]="loggedInUser"></app-about-me>
   </div>

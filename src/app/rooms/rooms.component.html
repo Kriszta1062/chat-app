@@ -17,6 +17,21 @@
         <div *ngIf="!addButtonActive" class="text"> Create new group</div>
     </div>
 
+<!-- users -->
+
+    <div class="room" *ngFor="let user of users">
+        <div class="active" *ngIf="user.active">
+            <img [ngStyle]="{'boxShadow': '0 0 7px green'}"  src="{{user.pic}}" alt="{{user.firstName}}">
+        </div>
+        <div class="not-active" *ngIf="!user.active">
+            <img  [ngStyle]="{'boxShadow': '0 0 7px red'}" src="{{user.pic}}" alt="{{user.firstName}}">
+        </div>
+        <div class="infos">
+            <div>{{user.firstName}}</div>
+            <div class="members">{{user.lastName}}</div>
+        </div>
+    </div>
+
 <!-- rooms -->
 
 
