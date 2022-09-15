@@ -18,6 +18,8 @@
     </div>
 
 <!-- rooms -->
+
+
     <div class="room" *ngFor="let room of rooms">
         <div class="active" *ngIf="room.active">
             <img [ngStyle]="{'boxShadow': '0 0 7px green'}"  src="{{room.pic}}" alt="{{room.name}}">

@@ -24,6 +24,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthService } from './services/auth.service';
+import { MessageService } from './services/message.service';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import { AuthService } from './services/auth.service';
     FormsModule,
 
   ],
-  providers: [RoomService, UserService, AuthService],
+  providers: [RoomService, UserService, AuthService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

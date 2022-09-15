@@ -25,7 +25,7 @@ export class RoomsComponent implements OnInit {
   roomToEdit?: Room;
   
 
-  @Output() addButtonActive: boolean = false;
+  @Output() addButtonActive: boolean = false; //is output surely correct? 
 
   constructor(private roomService: RoomService) { 
 

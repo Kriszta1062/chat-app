@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Message } from '../models/message';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-conversation',
@@ -9,43 +10,38 @@ import { Message } from '../models/message';
 export class ConversationComponent implements OnInit {
 
   chosedRoomId?: string;
+  currentUserId?: string = "lMsbqeIMduV2d9mHA4CF";
+  
+  messages: Message[] = [];
 
-  @Input() room: any;
+  message: Message = {
+    text: '',
+    time: '',
+    userId: '',
+    roomId: '',
+  }
 
-    messages: Message[] = [
-      {
-        text: 'This is a message.' ,
-        time: '18:20',
-        userId: 'ojfnvojnde',
-        roomId: 'snovdnon',
-      },
-      {
-        text: 'This is another message.' ,
-        time: '18:22',
-        userId: 'svsdvsvsv',
-        roomId: 'snovdnon',
-      },
-      {
-        text: 'This is just another one.' ,
-        time: '18:25',
-        userId: 'ojfnvojnde',
-        roomId: 'snovdnon',
-      },
-      {
-        text:'This one is quite long, just to thest how it looks' ,
-        time: '18:27',
-        userId: 'svsdvsvsv',
-        roomId: 'snovdnon',
-      },
-      
-    ]
-
-
-  constructor() { }
+  constructor(private messageService: MessageService) {}
 
   ngOnInit(): void {
-    console.log(this.messages);
+    this.messageService.getMessages().subscribe(messages => {
+      this.messages = messages;
+    })
+
     
   }
 
+  onSubmit(){
+    if(this.message.text != ''){
+      this.messageService.addMessage(this.message);
+      this.message.text = '';
+      this.message.time = '';
+      this.message.userId = '';
+      this.message.roomId = '';
+      
+    }
+
+  }
+
 }
+ 
