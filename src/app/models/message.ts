@@ -3,5 +3,5 @@ export interface Message{
     text:string;
     time: string;
     userId: string;
-    roomid: string;
+    roomId: string;
   }
