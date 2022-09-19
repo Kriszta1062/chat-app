@@ -14,11 +14,12 @@ export class ProfileComponent implements OnInit {
 
   loggedInUser?: string;
   users: User[] = [];
-  userService: any;
-  roomService: any;
   rooms: Room[] =[];
+  pickedRoomId?: string;
+  pickedUserEmail?: string;
+  
 
-  constructor(private authService: AuthService, userService: UserService, roomService: RoomService) { }
+  constructor(private authService: AuthService, private userService: UserService, private roomService: RoomService) { }
 
   ngOnInit(): void {
     this.authService.getAuth().subscribe(auth => {
@@ -27,19 +28,24 @@ export class ProfileComponent implements OnInit {
       }
     });
     
-    // this.roomService.getRooms().subscribe((rooms: any) => {
-    //   this.rooms = rooms;
-    // })
-    // console.log(this.rooms);
+    this.roomService.getRooms().subscribe((rooms: any) => {
+      this.rooms = rooms;
+    })
     
 
-    // this.userService.getUsers().subscribe((users: any) => {
-    //   this.users = users;
-    // })
-
-    // console.log(this.users);
-    
-
+    this.userService.getUsers().subscribe((users: any) => {
+      this.users = users;
+    })
   }
+
+  getRoomData(event: any){
+    this.pickedRoomId = event
+  }
+  
+  getUserData(event: any){
+    this.pickedUserEmail = event
+  }
+
+  
 
 }

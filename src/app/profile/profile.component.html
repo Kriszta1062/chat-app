@@ -1,5 +1,9 @@
 <div class="main">
-    <app-rooms></app-rooms>
+    <app-rooms
+    [loggedInUser] = "loggedInUser"
+    (chooseRoom) = "getRoomData($event)"
+    (chooseUser) = "getUserData($event)"
+    ></app-rooms>
     <app-conversation [loggedInUser] = "loggedInUser"></app-conversation>
     <app-about-me [loggedInUser]="loggedInUser"></app-about-me>
   </div>

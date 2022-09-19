@@ -1,5 +1,5 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { faPencil } from '@fortawesome/free-solid-svg-icons';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { faMessage, faPencil } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -7,6 +7,7 @@ import { RoomService } from '../services/room.service';
 import { Room } from '../models/room';
 import { UserService } from '../services/user.service';
 import { User } from '../models/user';
+import { EventEmitter } from '@angular/core';
 
 
 
@@ -21,30 +22,29 @@ export class RoomsComponent implements OnInit {
   faSearch=faSearch;
   faPlus=faPlus;
   faTimes=faTimes;
+  faMessage = faMessage;
 
   rooms: Room[] = [];
   editState: boolean = false;
   roomToEdit?: Room;
-
+  roomChosen?: Room;
   users: User[] = [];
-  
-
   addButtonActive: boolean = false; 
-  userService: any;
 
-  constructor(private roomService: RoomService, userService: UserService) { 
+  @Input() loggedInUser: any;
+  @Output() pickedRoom = new EventEmitter<string>();
 
-  }
+  constructor(private roomService: RoomService, private userService: UserService) {}
 
   ngOnInit(): void {
     this.roomService.getRooms().subscribe(rooms => {
       this.rooms = rooms;
     })
 
-    // this.userService.getUsers().subscribe((users: User[]) => {
-    //   this.users = users;
-    // })
-    // console.log(this.users);
+    this.userService.getUsers().subscribe((users: User[]) => {
+      this.users = users;
+    })
+    console.log(this.users);
     
   }
 
@@ -63,9 +63,22 @@ export class RoomsComponent implements OnInit {
     this.clearState();
   }
 
+  roomMessage(room: Room){
+    this.roomChosen = room;
+  }
+
   clearState(){
     this.editState = false;
     this.roomToEdit = undefined;
   }
 
+  chooseRoom(room: Room){
+    this.pickedRoom.emit(room.id)
+  }
+
+  chooseUser(user: User){
+    this.pickedRoom.emit(user.email)
+
+
+  }
 }
