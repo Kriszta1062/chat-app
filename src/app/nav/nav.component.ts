@@ -5,6 +5,8 @@ import { faSignOut } from '@fortawesome/free-solid-svg-icons';
 import { Router} from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { User } from '../models/user';
+import { UserService } from '../services/user.service';
+
 //FlashMessageModule
 
 @Component({
@@ -22,7 +24,9 @@ export class NavComponent implements OnInit {
   faCog=faCog;
   faSignOut=faSignOut
 
-  constructor(private authService: AuthService, private router: Router) { }
+  users: User[] = [];
+
+  constructor(private authService: AuthService, private router: Router, private userService: UserService ) { }
 
   ngOnInit(): void {
     this.authService.getAuth().subscribe(auth => {
@@ -33,11 +37,20 @@ export class NavComponent implements OnInit {
         this.isLoggedIn = false;
       }
     })
+
+    this.userService.getUsers().subscribe((users: any) => {
+      this.users = users;
+    })
   }
 
   onLogoutClick(){
+    this.users.forEach( user => {
+      if(user.email === this.loggedInUser){
+        user.active = false;
+        
+      }
+    })
     this.authService.logout();
-    //user active change false
     this.router.navigate(['/'])
   }
 

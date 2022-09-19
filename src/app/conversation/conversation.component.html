@@ -6,7 +6,7 @@
                 <div *ngIf="pickedRoomId && message.roomId === pickedRoomId">
                     <div *ngFor=" let user of users">
                     <div *ngIf="user.email === message.userId" class="message">
-                    <img class="profile" src="{{user.email}}" alt="profile picture">
+                    <img class="profile" src="{{user.pic}}" alt="profile picture">
                     <div class="texts">
                         <div class="name">{{user.firstName}}</div>
                         <div class="text">{{message.text}}</div>
@@ -37,6 +37,7 @@
                 </div>
             </div>
     </div>
+
     <div *ngIf="!pickedRoomId">
         <img class="cover" src="/assets/images/logo.jpg" alt="">
     </div>
