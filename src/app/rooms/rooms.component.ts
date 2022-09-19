@@ -27,7 +27,6 @@ export class RoomsComponent implements OnInit {
   rooms: Room[] = [];
   editState: boolean = false;
   roomToEdit?: Room;
-  roomChosen?: Room;
   users: User[] = [];
   addButtonActive: boolean = false; 
 
@@ -45,7 +44,6 @@ export class RoomsComponent implements OnInit {
       this.users = users;
     })
     console.log(this.users);
-    
   }
 
   deleteRoom(event: any, room: Room){
@@ -55,7 +53,6 @@ export class RoomsComponent implements OnInit {
   editRoom(event: any, room: Room){
     this.editState = true;
     this.roomToEdit = room;
-    
   }
 
   updateRoom(room: Room){
@@ -63,9 +60,9 @@ export class RoomsComponent implements OnInit {
     this.clearState();
   }
 
-  roomMessage(room: Room){
-    this.roomChosen = room;
-  }
+  // roomMessage(room: Room){
+  //   this.roomChosen = room;
+  // }
 
   clearState(){
     this.editState = false;
@@ -75,17 +72,12 @@ export class RoomsComponent implements OnInit {
   chooseRoom(room: Room){
     this.pickedRoom.emit(room.id)
     console.log(room.id);
-    console.log(this.roomChosen);
-    
-    
+    console.log(this.pickedRoom);
   }
 
   chooseUser(user: User){
     this.pickedRoom.emit(user.email)
     console.log(user.email);
-    
-    
-
-
+    console.log(this.pickedRoom);
   }
 }

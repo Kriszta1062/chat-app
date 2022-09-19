@@ -1,7 +1,7 @@
 <div class="main">
     <app-rooms
     [loggedInUser] = "loggedInUser"
-    (chooseRoom) = "getRoomData($event)"
+    (pickedRoom) = "getRoomData($event)"
     (chooseUser) = "getUserData($event)"
     ></app-rooms>
     <app-conversation [pickedRoomId]="pickedRoomId"></app-conversation>
