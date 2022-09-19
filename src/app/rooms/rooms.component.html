@@ -7,15 +7,6 @@
             <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faSearch"></fa-icon>
         </button>
     </div>
-    <div class="create">
-        <div *ngIf="!addButtonActive" class="close-btn">
-            <fa-icon (click)="addButtonActive=true" [ngStyle]="{'color': '#1d4226'}" [icon]="faPlus"></fa-icon>
-        </div>
-        <div *ngIf="addButtonActive">
-            <app-add-room [addButtonActive]="addButtonActive"></app-add-room>
-        </div>
-        <div *ngIf="!addButtonActive" class="text"> Create new group</div>
-    </div>
 
 <!-- users -->
 
@@ -32,7 +23,7 @@
         <div class="users">
             <div>{{user.firstName}} {{user.lastName}}</div>
         </div>
-        <a href=" ">
+        <a>
             <i (click)="chooseUser(user)">
                 <fa-icon [ngStyle]="{'color': '#1d4226'}" [icon]="faMessage"></fa-icon>
             </i>

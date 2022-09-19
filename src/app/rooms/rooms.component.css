@@ -127,3 +127,17 @@ label{
 .container{
     width: 350px
 }
+
+.room-type{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    box-shadow: 0 0 10px #1d4226;
+    padding: 10px;
+    margin: 20px;
+    background-color: white;
+    color: #1d4226;
+
+}

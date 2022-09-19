@@ -2,8 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Message } from '../models/message';
 import { MessageService } from '../services/message.service';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-
-
+import { Room } from '../models/room';
+import { User } from '../models/user';
+import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
+import { RoomService } from '../services/room.service';
 
 @Component({
   selector: 'app-conversation',
@@ -13,38 +16,53 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 export class ConversationComponent implements OnInit {
 
   faTimes=faTimes;
-  chosedRoomId?: string;
-  @Input() loggedInUser: any ;
+  @Input() pickedRoomId?: string;
+  loggedInUser?: any ;
   messages: Message[] = [];
+  users: User[] = [];
+  rooms: Room[] = [];
+  text: string = ''
 
-  currentTime = new Date();
-  
 
-  
-  message: Message = {
-    text: '',
-    time:  this.currentTime.getHours() + ':' + this.currentTime.getMinutes(), // current date
-    userId: '',
-    roomId: '',
-  }
-
-  constructor(private messageService: MessageService) {}
+  constructor(
+    private messageService: MessageService, 
+    private roomService: RoomService,
+    private userService: UserService,
+    private authService: AuthService
+    ) {}
 
   ngOnInit(): void {
     this.messageService.getMessages().subscribe(messages => {
       this.messages = messages;
     })
 
+    this.authService.getAuth().subscribe(auth => {
+      if(auth){
+       this.loggedInUser = auth.email;
+      }
+    });
+    
+    this.roomService.getRooms().subscribe((rooms: any) => {
+      this.rooms = rooms;
+    })
+    
+
+    this.userService.getUsers().subscribe((users: any) => {
+      this.users = users;
+    })
     
   }
 
   onSubmit(){
-    if(this.message.text != ''){
-      this.messageService.addMessage(this.message);
-      this.message.text = '';
-      this.message.time = this.currentTime.getHours() + ':' + this.currentTime.getMinutes();
-      this.message.userId = '';
-      this.message.roomId = '';
+    if(this.text !== '' && this.pickedRoomId){
+      const message: Message = {
+        text: this.text,
+        userId: this.loggedInUser,
+        roomId: this.pickedRoomId,
+        time: Date.now(),
+      }
+      this.messageService.addMessage(message);
+      this.text = '';
       
     }
 

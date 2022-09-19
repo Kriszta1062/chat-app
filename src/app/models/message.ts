@@ -1,7 +1,7 @@
 export interface Message{
     id?: string;
     text:string;
-    time: string;
+    time: number;
     userId: string;
     roomId: string;
   }

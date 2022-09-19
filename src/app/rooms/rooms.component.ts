@@ -74,10 +74,17 @@ export class RoomsComponent implements OnInit {
 
   chooseRoom(room: Room){
     this.pickedRoom.emit(room.id)
+    console.log(room.id);
+    console.log(this.roomChosen);
+    
+    
   }
 
   chooseUser(user: User){
     this.pickedRoom.emit(user.email)
+    console.log(user.email);
+    
+    
 
 
   }

@@ -4,6 +4,6 @@
     (chooseRoom) = "getRoomData($event)"
     (chooseUser) = "getUserData($event)"
     ></app-rooms>
-    <app-conversation [loggedInUser] = "loggedInUser"></app-conversation>
+    <app-conversation [pickedRoomId]="pickedRoomId"></app-conversation>
     <app-about-me [loggedInUser]="loggedInUser"></app-about-me>
   </div>
