@@ -74,15 +74,16 @@ export class ConversationComponent implements OnInit {
 
   displayTime(time: number){ 
     // half of the code from stackoverflow
-    var date = new Date (time)
-    var hours= date.getHours();
-    var minutes = date.getMinutes();
+    let formatMinute
+    let date = new Date (time)
+    let hours= date.getHours();
+    let minutes = date.getMinutes();
     if(minutes<10){
-      var formatMinute = "0" + minutes;
+      formatMinute = "0" + minutes;
     }else{
       formatMinute = "" + minutes;
     }
-    var formattedTime = hours + ':' + formatMinute;
+    let formattedTime = hours + ':' + formatMinute;
     return formattedTime;
   }
 
