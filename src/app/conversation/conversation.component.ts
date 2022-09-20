@@ -72,5 +72,19 @@ export class ConversationComponent implements OnInit {
     this.messageService.deleteMessage(message);
   }
 
+  displayTime(time: number){ 
+    // half of the code from stackoverflow
+    var date = new Date (time)
+    var hours= date.getHours();
+    var minutes = date.getMinutes();
+    if(minutes<10){
+      var formatMinute = "0" + minutes;
+    }else{
+      formatMinute = "" + minutes;
+    }
+    var formattedTime = hours + ':' + formatMinute;
+    return formattedTime;
+  }
+
 }
  
