@@ -16,20 +16,25 @@
 					name="name"
                 >
             </div>
-			<div class="input">
-                <label>Access: </label>
-                <input 
-                    type="text"
-					placeholder="Add access"
-					[(ngModel)] = "room.access"
-					name="access"
+            <div class="input">
+                <label>Access</label>
+                <select 
+                id="dropdownOption"
+                class="form-control"
+                type="text"
+                [(ngModel)]="room.access"
+                name="access"
                 >
-            </div>
+                <option value="public">public</option>
+                <option value="private">private</option>
+              </select>
+                
+              </div>
 			<div class="input">
                 <label>Picture: </label>
                 <input 
                     type="text"
-					placeholder="Add the url of a  picture"
+					placeholder="Add the url of a picture"
 					[(ngModel)] = "room.pic"
 					name="pic"
                 >
@@ -38,7 +43,7 @@
                 <label>Members</label>
                 <input
                   type="text"
-                  placeholder="Add the members email separated with space"
+                  placeholder="Add the members e-mail separated with space"
                   [(ngModel)]="room.members"
                   name="members"
                 />
