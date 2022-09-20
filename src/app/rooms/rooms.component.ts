@@ -77,8 +77,15 @@ export class RoomsComponent implements OnInit {
 
   chooseUser(user: User){
     this.pickedRoom.emit(user.email)
-    console.log(user.email);
-    console.log(this.pickedRoom);
+    let roomFound = this.rooms.find(r => r.members.length == 2 && r.members.includes(user.email) && r.members.includes(this.loggedInUser))
+    if(roomFound){
+      console.log(roomFound);
+    }else{
+      let current = this.users.find(u => u.email === this.loggedInUser)
+      if(current){
+      this.createRoom(current, user)}
+    }
+  
   }
 
   signUpForARoom(room: Room){
@@ -89,5 +96,21 @@ export class RoomsComponent implements OnInit {
     console.log("rooms: " + room.members);
     
     this.roomService.updateRoom(room);
+  }
+
+  createRoom(current: User, user: User ){
+    let room: Room = {
+      name: '',
+      members: [],
+      access: '',
+      pic: '',
+    }
+    if(current && user){
+      room.name = current.firstName + " " + user.firstName;
+      room.pic = current.pic;
+      room.members = [current.email, user.email];
+      room.access = 'pairConversation';
+      this.roomService.addRoom(room);
+    }
   }
 }

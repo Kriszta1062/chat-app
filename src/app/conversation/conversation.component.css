@@ -71,6 +71,7 @@ input{
 
 i{
     cursor: pointer;
+    padding-bottom: 30px;
 }
 
 .room-name{

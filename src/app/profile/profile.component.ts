@@ -39,15 +39,11 @@ export class ProfileComponent implements OnInit {
   }
 
   getRoomData(event: any){
-    this.pickedRoomId = event;
-    console.log('roomid: ' + this.pickedRoomId);
-    
+    this.pickedRoomId = event;    
   }
   
   getUserData(event: any){
     this.pickedUserEmail = event;
-    console.log(this.pickedUserEmail);
-
   }
 
   
