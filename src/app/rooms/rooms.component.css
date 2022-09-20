@@ -147,3 +147,9 @@ label{
 i{
     cursor: pointer;
 }
+
+.room-action{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

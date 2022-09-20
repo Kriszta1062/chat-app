@@ -68,21 +68,22 @@
       </div> -->
       <div class="infos">
         <div>{{ room.name }}</div>
-        <div class="members">{{ room.members }}</div>
       </div>
-      <a>
-        <i (click)="editRoom($event, room)">
-          <fa-icon [ngStyle]="{ color: '#1d4226' }" [icon]="faPencil"></fa-icon>
-        </i>
-      </a>
-      <a>
-        <i (click)="chooseRoom(room)">
-          <fa-icon
-            [ngStyle]="{ color: '#1d4226' }"
-            [icon]="faMessage"
-          ></fa-icon>
-        </i>
-      </a>
+      <div class="room-actions">
+        <a>
+          <i (click)="editRoom($event, room)">
+            <fa-icon [ngStyle]="{ color: '#1d4226' }" [icon]="faPencil"></fa-icon>
+          </i>
+        </a>
+        <a>
+          <i (click)="chooseRoom(room)">
+            <fa-icon
+              [ngStyle]="{ color: '#1d4226' }"
+              [icon]="faMessage"
+            ></fa-icon>
+          </i>
+        </a>
+      </div>
       <div *ngIf="editState && roomToEdit?.id == room.id" class="container">
         <div class="form">
           <i (click)="clearState()" class="close-icon">
@@ -163,21 +164,22 @@
       </div> -->
       <div class="infos">
         <div>{{ room.name }}</div>
-        <div class="members">{{ room.members }}</div>
       </div>
-      <a>
-        <i (click)="editRoom($event, room)">
-          <fa-icon [ngStyle]="{ color: '#1d4226' }" [icon]="faPencil"></fa-icon>
-        </i>
-      </a>
-      <a>
-        <i (click)="chooseRoom(room)">
-          <fa-icon
-            [ngStyle]="{ color: '#1d4226' }"
-            [icon]="faMessage"
-          ></fa-icon>
-        </i>
-      </a>
+      <div class="room-actions">
+        <a>
+          <i (click)="editRoom($event, room)">
+            <fa-icon [ngStyle]="{ color: '#1d4226' }" [icon]="faPencil"></fa-icon>
+          </i>
+        </a>
+        <a>
+          <i (click)="chooseRoom(room)">
+            <fa-icon
+              [ngStyle]="{ color: '#1d4226' }"
+              [icon]="faMessage"
+            ></fa-icon>
+          </i>
+        </a>
+      </div>
       <div *ngIf="editState && roomToEdit?.id == room.id" class="container">
         <div class="form">
           <i (click)="clearState()" class="close-icon">

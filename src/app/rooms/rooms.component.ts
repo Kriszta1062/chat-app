@@ -11,6 +11,7 @@ import { EventEmitter } from '@angular/core';
 
 
 
+
 @Component({
   selector: 'app-rooms',
   templateUrl: './rooms.component.html',
@@ -59,10 +60,6 @@ export class RoomsComponent implements OnInit {
     this.roomService.updateRoom(room);
     this.clearState();
   }
-
-  // roomMessage(room: Room){
-  //   this.roomChosen = room;
-  // }
 
   clearState(){
     this.editState = false;
