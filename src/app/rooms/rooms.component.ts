@@ -37,6 +37,8 @@ export class RoomsComponent implements OnInit {
   constructor(private roomService: RoomService, private userService: UserService) {}
 
   ngOnInit(): void {
+
+    
     this.roomService.getRooms().subscribe(rooms => {
       this.rooms = rooms;
     })

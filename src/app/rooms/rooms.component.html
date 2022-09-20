@@ -147,7 +147,7 @@
   <div class="room-type">Private Rooms</div>
 
   <div *ngFor="let room of rooms">
-    <div class="room" *ngIf="room.access === 'private'">
+    <div class="room" *ngIf="room.access === 'private' && room.members.includes(loggedInUser)">
       <!-- <div class="active" *ngIf="room.active"> -->
         <img
           [ngStyle]="{ boxShadow: '0 0 7px black' }"

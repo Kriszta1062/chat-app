@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RoomService } from '../services/room.service';
 import { Room } from '../models/room';
 import {faTimes} from '@fortawesome/free-solid-svg-icons';;
@@ -14,6 +14,7 @@ export class AddRoomComponent implements OnInit {
   faTimes=faTimes;
 
   @Input() addButtonActive?: boolean;
+  // @Output() changedButtonActivity = new EventEmitter<boolean>();
 
   room: Room = {
     name: '',

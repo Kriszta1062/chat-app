@@ -1,44 +1,54 @@
 <div class="container">
-    <div *ngFor=" let room of rooms">
-        <div *ngIf="pickedRoomId && room.id === pickedRoomId">
-            {{room.name}}
-            <div *ngFor="let message of messages" class="message-area">
-                <div *ngIf="pickedRoomId && message.roomId === pickedRoomId">
-                    <div *ngFor=" let user of users">
-                    <div *ngIf="user.email === message.userId" class="message">
-                    <img class="profile" src="{{user.pic}}" alt="profile picture">
-                    <div class="texts">
-                        <div class="name">{{user.firstName}}</div>
-                        <div class="text">{{message.text}}</div>
-                    </div>
-                        <div class="text">{{displayTime(message.time)}}</div>
-                        <i *ngIf="message.userId === loggedInUser" (click)="deleteMessage($event, message)" class="close-icon">
-                            <fa-icon [ngStyle]="{'color': 'red'}" [icon]="faTimes"></fa-icon>
-                        </i>
-                    </div>
-                </div>
+  <div *ngFor="let room of rooms">
+    <div *ngIf="pickedRoomId && room.id === pickedRoomId">
+      <div class="room-name">{{ room.name }}</div>
+      <div *ngFor="let message of messages" class="message-area">
+        <div *ngIf="pickedRoomId && message.roomId === pickedRoomId">
+          <div *ngFor="let user of users">
+            <div *ngIf="user.email === message.userId" class="message">
+              <img class="profile" src="{{ user.pic }}" alt="profile picture" />
+              <div class="texts">
+                <div class="name">{{ user.firstName }}</div>
+                <div class="text">{{ message.text }}</div>
+              </div>
+              <div class="side">
+                <i
+                  class="x-button"
+                  *ngIf="message.userId === loggedInUser"
+                  (click)="deleteMessage($event, message)"
+                  class="close-icon"
+                >
+                  <fa-icon
+                    [ngStyle]="{ color: 'red' }"
+                    [icon]="faTimes"
+                  ></fa-icon>
+                </i>
+                <div class="side">{{ displayTime(message.time) }}</div>
+              </div>
             </div>
+          </div>
         </div>
-                <div class="form">
-                    <form (ngSubmit)="onSubmit()" >
-                        <div class="input">
-                            <input 
-                                placeholder="Type..."
-                                type="text"
-                                name="message"
-                                [(ngModel)] = "text"
-                                required
-                            >
-                        </div>
-                        <div class="btn-container">
-                            <input type="submit" value="Send" class="submit-button">
-                        </div>
-                    </form>
-                </div>
-            </div>
+      </div>
+      <div class="form">
+        <form (ngSubmit)="onSubmit()">
+          <div class="input">
+            <input
+              placeholder="Type..."
+              type="text"
+              name="message"
+              [(ngModel)]="text"
+              required
+            />
+          </div>
+          <div class="btn-container">
+            <input type="submit" value="Send" class="submit-button" />
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 
-    <div *ngIf="!pickedRoomId">
-        <img class="cover" src="/assets/images/logo.jpg" alt="logo">
-    </div>
+  <div *ngIf="!pickedRoomId">
+    <img class="cover" src="/assets/images/logo.jpg" alt="logo" />
+  </div>
 </div>

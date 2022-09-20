@@ -146,10 +146,16 @@ label{
 
 i{
     cursor: pointer;
+
 }
 
-.room-action{
+.room-actions{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+
+}
+
+a{
+    margin: 5px;
 }
