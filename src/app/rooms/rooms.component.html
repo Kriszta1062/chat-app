@@ -52,20 +52,20 @@
 
   <div *ngFor="let room of rooms">
     <div class="room" *ngIf="room.access === 'public'">
-      <div class="active" *ngIf="room.active">
+      <!-- <div class="active" *ngIf="room.active"> -->
         <img
-          [ngStyle]="{ boxShadow: '0 0 7px green' }"
+          [ngStyle]="{ boxShadow: '0 0 7px black' }"
           src="{{ room.pic }}"
           alt="{{ room.name }}"
         />
-      </div>
-      <div class="not-active" *ngIf="!room.active">
+      <!-- </div> -->
+      <!-- <div class="not-active" *ngIf="!room.active">
         <img
           [ngStyle]="{ boxShadow: '0 0 7px red' }"
           src="{{ room.pic }}"
           alt="{{ room.name }}"
         />
-      </div>
+      </div> -->
       <div class="infos">
         <div>{{ room.name }}</div>
         <div class="members">{{ room.members }}</div>
@@ -114,6 +114,15 @@
                 placeholder="Add a picture"
                 [(ngModel)]="room.pic"
                 name="pic"
+              />
+            </div>
+            <div class="input">
+              <label>Members</label>
+              <input
+                type="text"
+                placeholder="Add the members email separated with space"
+                [(ngModel)]="room.members"
+                name="members"
               />
             </div>
             <input type="submit" value="Update" class="submit-button" />
@@ -133,20 +142,20 @@
 
   <div *ngFor="let room of rooms">
     <div class="room" *ngIf="room.access === 'private'">
-      <div class="active" *ngIf="room.active">
+      <!-- <div class="active" *ngIf="room.active"> -->
         <img
-          [ngStyle]="{ boxShadow: '0 0 7px green' }"
+          [ngStyle]="{ boxShadow: '0 0 7px black' }"
           src="{{ room.pic }}"
           alt="{{ room.name }}"
         />
-      </div>
-      <div class="not-active" *ngIf="!room.active">
+      <!-- </div> -->
+      <!-- <div class="not-active" *ngIf="!room.active">
         <img
           [ngStyle]="{ boxShadow: '0 0 7px red' }"
           src="{{ room.pic }}"
           alt="{{ room.name }}"
         />
-      </div>
+      </div> -->
       <div class="infos">
         <div>{{ room.name }}</div>
         <div class="members">{{ room.members }}</div>
@@ -195,6 +204,15 @@
                 placeholder="Add a picture"
                 [(ngModel)]="room.pic"
                 name="pic"
+              />
+            </div>
+            <div class="input">
+              <label>Members</label>
+              <input
+                type="text"
+                placeholder="Add the members email separated with space"
+                [(ngModel)]="room.members"
+                name="members"
               />
             </div>
             <input type="submit" value="Update" class="submit-button" />

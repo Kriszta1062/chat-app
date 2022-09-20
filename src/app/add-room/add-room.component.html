@@ -29,20 +29,20 @@
                 <label>Picture: </label>
                 <input 
                     type="text"
-					placeholder="Add a picture"
+					placeholder="Add the url of a  picture"
 					[(ngModel)] = "room.pic"
 					name="pic"
                 >
             </div>
 			<div class="input">
-                <label>Members: </label>
-                <input 
-                    type="text"
-					placeholder="Add members"
-					[(ngModel)] = "room.members"
-					name="members"
-                >
-            </div>
+                <label>Members</label>
+                <input
+                  type="text"
+                  placeholder="Add the members email separated with space"
+                  [(ngModel)]="room.members"
+                  name="members"
+                />
+              </div>
 			<div class="btn-container">
 				<input type="submit" value="Submit" class="submit-button">
 			</div>

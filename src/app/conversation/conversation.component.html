@@ -12,7 +12,7 @@
                         <div class="text">{{message.text}}</div>
                     </div>
                         <div class="text">{{message.time}}</div>
-                        <i (click)="deleteMessage($event, message)" class="close-icon">
+                        <i *ngIf="message.userId === loggedInUser" (click)="deleteMessage($event, message)" class="close-icon">
                             <fa-icon [ngStyle]="{'color': 'red'}" [icon]="faTimes"></fa-icon>
                         </i>
                     </div>

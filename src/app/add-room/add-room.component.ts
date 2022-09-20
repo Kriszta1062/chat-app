@@ -18,7 +18,7 @@ export class AddRoomComponent implements OnInit {
   room: Room = {
     name: '',
     members: [],
-    active: true,
+    // active: true,
     access: '',
     pic: '',
   }
@@ -37,7 +37,7 @@ export class AddRoomComponent implements OnInit {
       this.room.pic = '';
       this.room.members = [];
       this.room.access = '';
-      this.room.active = true;
+      // this.room.active = true;
 
     }
   }

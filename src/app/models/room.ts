@@ -2,7 +2,7 @@ export interface Room{
     id?: string;
     name:string;
     members: string[]; //id-s of the members 
-    active: boolean;
+    // active: boolean; // wanted to display the  activity status, if at least one member is online, but I was out of time
     password?: string;
     access: string;
     pic: string;

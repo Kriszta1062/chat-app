@@ -70,14 +70,25 @@ export class RoomsComponent implements OnInit {
   }
 
   chooseRoom(room: Room){
-    this.pickedRoom.emit(room.id)
-    console.log(room.id);
-    console.log(this.pickedRoom);
+    this.pickedRoom.emit(room.id)    
+    if(this.userService.currentUser  && room.access === "public" && !room.members.includes(this.userService.currentUser.email)){
+      this.signUpForARoom(room)
+    }
   }
 
   chooseUser(user: User){
     this.pickedRoom.emit(user.email)
     console.log(user.email);
     console.log(this.pickedRoom);
+  }
+
+  signUpForARoom(room: Room){
+    if(this.userService.currentUser){
+      room.members.push(this.userService.currentUser.email);
+    }
+    console.log("current user: " + this.userService.currentUser?.email);
+    console.log("rooms: " + room.members);
+    
+    this.roomService.updateRoom(room);
   }
 }
