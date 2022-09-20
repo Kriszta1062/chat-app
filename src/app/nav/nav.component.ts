@@ -17,7 +17,6 @@ import { UserService } from '../services/user.service';
 export class NavComponent implements OnInit {
 
   isLoggedIn?: boolean;
-  loggedInUser?: string;
   showRegister?: boolean;
 
   faUser=faUser;
@@ -32,7 +31,6 @@ export class NavComponent implements OnInit {
     this.authService.getAuth().subscribe(auth => {
       if(auth){
        this.isLoggedIn = true;
-       this.loggedInUser = auth.email;
       } else{
         this.isLoggedIn = false;
       }
@@ -44,14 +42,10 @@ export class NavComponent implements OnInit {
   }
 
   onLogoutClick(){
-    this.users.forEach( user => {
-      if(user.email === this.loggedInUser){
-        user.active = false;
-        
-      }
-    })
+    this.userService.updateUserActivityStatus(false);
     this.authService.logout();
-    this.router.navigate(['/'])
+    this.router.navigate(['/']);
+    this.userService.currentUser = undefined;
   }
 
 }

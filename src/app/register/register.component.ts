@@ -34,9 +34,7 @@ export class RegisterComponent implements OnInit {
 
 onSubmit(){ // pop up messages needed
 
-  this.authService.register(this.email, this.password).then(res => {
-    this.router.navigate(['/profile']);
-    
+  this.authService.register(this.email, this.password).then(res => {    
     if(this.user.firstName != '' && this.user.lastName != '' && this.user.pic != '' && this.user.email != ''){
           this.userService.addUser(this.user);
           this.user.firstName='';
@@ -46,6 +44,11 @@ onSubmit(){ // pop up messages needed
           this.user.pic= '';
           this.user.email = '';
         }
+        this.userService.updateUserActivityStatus(true);
+        this.router.navigate(['/profile']);
+
+
+
   }).catch(err => {
     console.log(err);
   });

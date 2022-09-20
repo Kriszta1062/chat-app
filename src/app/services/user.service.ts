@@ -10,8 +10,7 @@ export class UserService {
 
   usersCollection?: AngularFirestoreCollection<User>;
   users: Observable<User[]>;
-  userDoc?: AngularFirestoreDocument<User>;
-  // user: Observable<User>;
+  currentUser?: User;
 
   constructor(public afs: AngularFirestore) {
 
@@ -34,5 +33,15 @@ export class UserService {
 
   addUser(user: User){
     this.usersCollection?.add(user);
+  }
+
+  async updateUserActivityStatus(status: boolean){
+    if(this.currentUser){
+      const userDoc: AngularFirestoreDocument<User> = this.afs.doc(
+        `Users/${this.currentUser.id}`
+        );
+        this.currentUser.active = status;
+        await userDoc.update(this.currentUser)
+    }
   }
 }
