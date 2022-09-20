@@ -78,6 +78,7 @@ img{
     border: none;
     box-shadow: 0 0 2px black;
     margin: 0 5px;
+    cursor: pointer;
 }
 
 
@@ -112,6 +113,7 @@ label{
     font-weight: bold;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .btn-container{
@@ -140,4 +142,8 @@ label{
     background-color: white;
     color: #1d4226;
 
+}
+
+i{
+    cursor: pointer;
 }

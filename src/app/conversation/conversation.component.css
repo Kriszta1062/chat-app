@@ -49,6 +49,7 @@
     font-weight: bold;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .btn-container{
@@ -67,4 +68,8 @@
 
 input{
     height: 50px;
+}
+
+i{
+    cursor: pointer;
 }
