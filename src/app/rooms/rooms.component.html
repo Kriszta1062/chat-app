@@ -133,7 +133,7 @@
                 <label>Members</label>
                 <input
                   type="text"
-                  placeholder="e-mails list (space between)"
+                  placeholder="add a new member's email"
                   [(ngModel)]="emailList"
                   name="members"
                 />
@@ -155,7 +155,7 @@
 
   <div *ngFor="let room of rooms">
     <div class="room-box">
-      <div class="room" *ngIf="room.access === 'private'">
+      <div class="room" *ngIf="room.access === 'private' && room.members.includes(loggedInUser)">
         <img
           [ngStyle]="{ boxShadow: '0 0 7px black' }"
           src="{{ room.pic }}"
@@ -226,7 +226,7 @@
                 <label>Members</label>
                 <input
                   type="text"
-                  placeholder="e-mails list (space between)"
+                  placeholder="add a new member's email"
                   [(ngModel)]="emailList"
                   name="members"
                 />

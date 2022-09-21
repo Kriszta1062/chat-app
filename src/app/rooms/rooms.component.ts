@@ -29,7 +29,7 @@ export class RoomsComponent implements OnInit {
 
   @Input() loggedInUser: any;
   @Output() pickedRoom = new EventEmitter<string>();
-  emailList!: string;
+  emailList?: string;
 
   constructor(
     private roomService: RoomService,
@@ -57,7 +57,10 @@ export class RoomsComponent implements OnInit {
   }
 
   updateRoom(room: Room) {
-    room.members = this.emailList.split(' ');
+    if(this.emailList){
+      room.members.push(this.emailList)
+
+    }
     this.roomService.updateRoom(room);
     this.clearState();
   }
