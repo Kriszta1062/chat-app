@@ -1,44 +1,41 @@
-.input{
-    padding: 5px;
-    margin: 10px;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    color: #1d4226;
-    font-weight: bold;
-
+.input {
+  padding: 5px;
+  margin: 10px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  color: #1d4226;
+  font-weight: bold;
 }
 
-.title{
-    text-align: center;
-    color: #1d4226;
+.title {
+  text-align: center;
+  color: #1d4226;
 }
 
-
-label{
-    padding: 0 10px;
+label {
+  padding: 0 10px;
 }
 
-.submit-button{
-    background-color: white;
-    color: #1d4226;
-    font-size: 15px;
-    padding: 5px 10px;
-    margin: 10px;
-    box-shadow: 0 0 3px black;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+.submit-button {
+  background-color: white;
+  color: #1d4226;
+  font-size: 15px;
+  padding: 5px 10px;
+  margin: 10px;
+  box-shadow: 0 0 3px black;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-.btn-container{
-    text-align: center;
-    align-items: center;
+.btn-container {
+  text-align: center;
+  align-items: center;
 }
 
-
-.close-icon{
-    display: flex;
-    justify-content: right;
+.close-icon {
+  display: flex;
+  justify-content: right;
 }

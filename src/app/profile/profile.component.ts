@@ -8,44 +8,42 @@ import { Room } from '../models/room';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-
   loggedInUser?: string;
   users: User[] = [];
-  rooms: Room[] =[];
+  rooms: Room[] = [];
   pickedRoomId?: string;
   pickedUserEmail?: string;
-  
 
-  constructor(private authService: AuthService, private userService: UserService, private roomService: RoomService) { }
+  constructor(
+    private authService: AuthService,
+    private userService: UserService,
+    private roomService: RoomService
+  ) {}
 
   ngOnInit(): void {
-    this.authService.getAuth().subscribe(auth => {
-      if(auth){
-       this.loggedInUser = auth.email;
+    this.authService.getAuth().subscribe((auth) => {
+      if (auth) {
+        this.loggedInUser = auth.email;
       }
     });
-    
+
     this.roomService.getRooms().subscribe((rooms: any) => {
       this.rooms = rooms;
-    })
-    
+    });
 
     this.userService.getUsers().subscribe((users: any) => {
       this.users = users;
-    })
+    });
   }
 
-  getRoomData(event: any){
-    this.pickedRoomId = event;    
+  getRoomData(event: any) {
+    this.pickedRoomId = event;
   }
-  
-  getUserData(event: any){
+
+  getUserData(event: any) {
     this.pickedUserEmail = event;
   }
-
-  
-
 }

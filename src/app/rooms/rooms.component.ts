@@ -29,7 +29,7 @@ export class RoomsComponent implements OnInit {
 
   @Input() loggedInUser: any;
   @Output() pickedRoom = new EventEmitter<string>();
-  emailList! : string;
+  emailList!: string;
 
   constructor(
     private roomService: RoomService,
@@ -119,10 +119,10 @@ export class RoomsComponent implements OnInit {
       room.access = 'pairConversation';
       this.roomService.addRoom(room);
     }
-    this.pickedRoom.emit(room.id)
+    this.pickedRoom.emit(room.id);
   }
 
-  addButtonActiveStatus(event: any){
+  addButtonActiveStatus(event: any) {
     this.addButtonActive = event;
   }
 }

@@ -1,7 +1,7 @@
-.logged{
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.logged {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }

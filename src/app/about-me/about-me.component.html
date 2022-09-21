@@ -1,12 +1,11 @@
 <div class="container">
-    <div class="details" >
-        <div *ngFor="let user of users">
-            <div *ngIf="user.email == loggedInUser">
-                <img src="{{user.pic}}">
+  <div class="details">
+    <div *ngFor="let user of users">
+      <div *ngIf="user.email == loggedInUser">
+        <img src="{{ user.pic }}" />
 
-                <h2>{{user.firstName}} {{user.lastName}}</h2>
-
-            </div>
-        </div>
+        <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+      </div>
     </div>
+  </div>
 </div>

@@ -1,34 +1,42 @@
 <div class="container">
-    <div class="search">
-        <form action="" class="">
-            <input type="text" placeholder="Search" id="search-form">
-        </form>
-        <button class="search-button">
-            <fa-icon  [ngStyle]="{'color': '#1d4226'}" [icon]="faSearch"></fa-icon>
-        </button>
+  <div class="search">
+    <form action="" class="">
+      <input type="text" placeholder="Search" id="search-form" />
+    </form>
+    <button class="search-button">
+      <fa-icon [ngStyle]="{ color: '#1d4226' }" [icon]="faSearch"></fa-icon>
+    </button>
+  </div>
+
+  <!-- users -->
+
+  <div class="room-type">USERS</div>
+
+  <div class="room" *ngFor="let user of users">
+    <div class="active" *ngIf="user.active">
+      <img
+        [ngStyle]="{ boxShadow: '0 0 7px green' }"
+        src="{{ user.pic }}"
+        alt="{{ user.firstName }}"
+      />
+    </div>
+    <div class="not-active" *ngIf="!user.active">
+      <img
+        [ngStyle]="{ boxShadow: '0 0 7px red' }"
+        src="{{ user.pic }}"
+        alt="{{ user.firstName }}"
+      />
     </div>
 
-<!-- users -->
-
-    <div class="room-type">USERS</div>
-
-    <div class="room" *ngFor="let user of users">
-        <div class="active" *ngIf="user.active">
-            <img [ngStyle]="{'boxShadow': '0 0 7px green'}"  src="{{user.pic}}" alt="{{user.firstName}}">
-        </div>
-        <div class="not-active" *ngIf="!user.active">
-            <img  [ngStyle]="{'boxShadow': '0 0 7px red'}" src="{{user.pic}}" alt="{{user.firstName}}">
-        </div>
-
-        <div class="users">
-            <div>{{user.firstName}} {{user.lastName}}</div>
-        </div>
-        <a>
-            <i (click)="chooseUser(user)">
-                <fa-icon [ngStyle]="{'color': '#1d4226'}" [icon]="faMessage"></fa-icon>
-            </i>
-        </a>
+    <div class="users">
+      <div>{{ user.firstName }} {{ user.lastName }}</div>
     </div>
+    <a>
+      <i (click)="chooseUser(user)">
+        <fa-icon [ngStyle]="{ color: '#1d4226' }" [icon]="faMessage"></fa-icon>
+      </i>
+    </a>
+  </div>
   <!-- rooms -->
 
   <div class="room-type">Rooms</div>
@@ -42,7 +50,10 @@
       ></fa-icon>
     </div>
     <div *ngIf="addButtonActive">
-      <app-add-room [addButtonActive]="addButtonActive"></app-add-room>
+      <app-add-room
+        [addButtonActive]="addButtonActive"
+        (changedButtonActivity)="addButtonActiveStatus($event)"
+      ></app-add-room>
     </div>
     <div *ngIf="!addButtonActive" class="text">Create new group</div>
   </div>
@@ -53,11 +64,11 @@
   <div *ngFor="let room of rooms">
     <div class="room" *ngIf="room.access === 'public'">
       <!-- <div class="active" *ngIf="room.active"> -->
-        <img
-          [ngStyle]="{ boxShadow: '0 0 7px black' }"
-          src="{{ room.pic }}"
-          alt="{{ room.name }}"
-        />
+      <img
+        [ngStyle]="{ boxShadow: '0 0 7px black' }"
+        src="{{ room.pic }}"
+        alt="{{ room.name }}"
+      />
       <!-- </div> -->
       <!-- <div class="not-active" *ngIf="!room.active">
         <img
@@ -72,7 +83,10 @@
       <div class="room-actions">
         <a>
           <i (click)="editRoom($event, room)">
-            <fa-icon [ngStyle]="{ color: '#1d4226' }" [icon]="faPencil"></fa-icon>
+            <fa-icon
+              [ngStyle]="{ color: '#1d4226' }"
+              [icon]="faPencil"
+            ></fa-icon>
           </i>
         </a>
         <a>
@@ -101,17 +115,16 @@
             </div>
             <div class="input">
               <label>Access</label>
-              <select 
-              id="dropdownOption"
-              class="form-control"
-              type="text"
-              [(ngModel)]="room.access"
-              name="access"
+              <select
+                id="dropdownOption"
+                class="form-control"
+                type="text"
+                [(ngModel)]="room.access"
+                name="access"
               >
-              <option value="public">public</option>
-              <option value="private">private</option>
-            </select>
-              
+                <option value="public">public</option>
+                <option value="private">private</option>
+              </select>
             </div>
             <div class="input">
               <label>Picture</label>
@@ -127,7 +140,7 @@
               <input
                 type="text"
                 placeholder="Add the members e-mail separated with space"
-                [(ngModel)]="room.members"
+                [(ngModel)]="emailList"
                 name="members"
               />
             </div>
@@ -147,13 +160,16 @@
   <div class="room-type">Private Rooms</div>
 
   <div *ngFor="let room of rooms">
-    <div class="room" *ngIf="room.access === 'private' && room.members.includes(loggedInUser)">
+    <div
+      class="room"
+      *ngIf="room.access === 'private' && room.members.includes(loggedInUser)"
+    >
       <!-- <div class="active" *ngIf="room.active"> -->
-        <img
-          [ngStyle]="{ boxShadow: '0 0 7px black' }"
-          src="{{ room.pic }}"
-          alt="{{ room.name }}"
-        />
+      <img
+        [ngStyle]="{ boxShadow: '0 0 7px black' }"
+        src="{{ room.pic }}"
+        alt="{{ room.name }}"
+      />
       <!-- </div> -->
       <!-- <div class="not-active" *ngIf="!room.active">
         <img
@@ -168,7 +184,10 @@
       <div class="room-actions">
         <a>
           <i (click)="editRoom($event, room)">
-            <fa-icon [ngStyle]="{ color: '#1d4226' }" [icon]="faPencil"></fa-icon>
+            <fa-icon
+              [ngStyle]="{ color: '#1d4226' }"
+              [icon]="faPencil"
+            ></fa-icon>
           </i>
         </a>
         <a>
@@ -197,17 +216,16 @@
             </div>
             <div class="input">
               <label>Access</label>
-              <select 
-              id="dropdownOption"
-              class="form-control"
-              type="text"
-              [(ngModel)]="room.access"
-              name="access"
+              <select
+                id="dropdownOption"
+                class="form-control"
+                type="text"
+                [(ngModel)]="room.access"
+                name="access"
               >
-              <option value="public">public</option>
-              <option value="private">private</option>
-            </select>
-              
+                <option value="public">public</option>
+                <option value="private">private</option>
+              </select>
             </div>
             <div class="input">
               <label>Picture</label>
@@ -223,7 +241,7 @@
               <input
                 type="text"
                 placeholder="Add the members e-mail separated with space"
-                [(ngModel)]="room.members"
+                [(ngModel)]="emailList"
                 name="members"
               />
             </div>
@@ -240,4 +258,5 @@
     </div>
   </div>
 
-<!-- traversi - tutorial1 35:11 ng if ellenorzes -->
+  <!-- traversi - tutorial1 35:11 ng if ellenorzes -->
+</div>

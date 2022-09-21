@@ -1,68 +1,64 @@
 <div class="main">
-    <app-login></app-login>
+  <app-login></app-login>
 </div>
 
 <div class="main">
-<div class="container">
-    <h3 class="title">
-        Registration
-    </h3>
+  <div class="container">
+    <h3 class="title">Registration</h3>
     <div class="form">
-        <form (ngSubmit)="onSubmit()" >
-            <div class="input">
-                <label>First name: </label>
-                <input 
-                    type="text"
-                    placeholder="Add first name"
-                    [(ngModel)] = "user.firstName"
-                    name="firstName"
-                >
-            </div>
-            <div class="input">
-                <label>Last name: </label>
-                <input 
-                    type="text"
-                    placeholder="Add last name"
-                    [(ngModel)] = "user.lastName"
-                    name="lastName"
-                >
-            </div>
-            <div class="input">
-                <label>E-mail: </label>
-                <input 
-                    type="text"
-					placeholder="Add e-mail"
-					[(ngModel)] = "email"
-                    [(ngModel)] = "user.email"
-					name="email"
-                >
-            </div>
-            <div class="error" *ngIf="error">{{error}}</div>
-            <div class="input">
-                <label>Password: </label>
-                <input 
-                    type="password"
-					placeholder="Add password"
-					[(ngModel)] = "password"
-					name="password"
-                >
-            </div>
-            <div class="input">
-                <label>Picture: </label>
-                <input 
-                    type="text"
-					placeholder="Add the url of a picture"
-                    [(ngModel)] = "user.pic"
-                    name="pic"
-                >
-            </div>
+      <form (ngSubmit)="onSubmit()">
+        <div class="input">
+          <label>First name: </label>
+          <input
+            type="text"
+            placeholder="Add first name"
+            [(ngModel)]="user.firstName"
+            name="firstName"
+          />
+        </div>
+        <div class="input">
+          <label>Last name: </label>
+          <input
+            type="text"
+            placeholder="Add last name"
+            [(ngModel)]="user.lastName"
+            name="lastName"
+          />
+        </div>
+        <div class="input">
+          <label>E-mail: </label>
+          <input
+            type="text"
+            placeholder="Add e-mail"
+            [(ngModel)]="email"
+            [(ngModel)]="user.email"
+            name="email"
+          />
+        </div>
+        <div class="error" *ngIf="error">{{ error }}</div>
+        <div class="input">
+          <label>Password: </label>
+          <input
+            type="password"
+            placeholder="Add password"
+            [(ngModel)]="password"
+            name="password"
+          />
+        </div>
+        <div class="input">
+          <label>Picture: </label>
+          <input
+            type="text"
+            placeholder="Add the url of a picture"
+            [(ngModel)]="user.pic"
+            name="pic"
+          />
+        </div>
 
-			<div class="btn-container">
-				<input type="submit" value="Submit" class="submit-button">
-			</div>
-        </form>
+        <div class="btn-container">
+          <input type="submit" value="Submit" class="submit-button" />
+        </div>
+      </form>
     </div>
+  </div>
 </div>
-
-</div>
-
