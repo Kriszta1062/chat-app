@@ -54,10 +54,16 @@ img {
 }
 
 .create {
+  
+  
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border-radius: 50px;
+  text-align: center;
+  border: none;
+  margin: 0 5px;
 }
 
 .widget {

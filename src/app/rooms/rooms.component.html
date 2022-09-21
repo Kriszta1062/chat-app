@@ -10,7 +10,7 @@
 
   <!-- users -->
 
-  <div class="room-type">USERS</div>
+  <h2 class="title">USERS</h2>
 
   <div class="room" *ngFor="let user of users">
     <div class="active" *ngIf="user.active">
@@ -39,7 +39,6 @@
   </div>
   <!-- rooms -->
 
-  <div class="room-type">Rooms</div>
 
   <div class="create">
     <div *ngIf="!addButtonActive" class="close-btn">
@@ -59,7 +58,7 @@
   </div>
 
   <!-- LIST OF ROOMS -->
-  <div class="room-type">Publik Rooms</div>
+  <h2 class="title">Publik Rooms</h2>
 
   <div *ngFor="let room of rooms">
     <div class="room-box">
@@ -152,7 +151,7 @@
     </div>
   </div>
 
-  <div class="room-type">Private Rooms</div>
+  <h2 class="title">Private Rooms</h2>
 
   <div *ngFor="let room of rooms">
     <div class="room-box">
