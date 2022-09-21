@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.authService.getAuth().subscribe((auth) => {
       if (auth) {
-        this.router.navigate(['/profile']); // if we are logged in this will brings us back to the profile, if we want to change to login
+        this.router.navigate(['/profile']); // if we are logged in this will brings us back to the profile, if we want to change to login page
       }
     });
   }

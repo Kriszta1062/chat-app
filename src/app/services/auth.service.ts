@@ -33,7 +33,3 @@ export class AuthService {
     });
   }
 }
-
-// this.afAuth.auth.signInWithEmailAndPassword(email, password).then((userData: unknown) => resolve(userData),
-//         (err: any) => reject(err))
-// this should be, but auth gave us an error

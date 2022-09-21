@@ -18,7 +18,7 @@ export class RoomService {
   constructor(public afs: AngularFirestore) {
     this.roomsCollection = this.afs.collection<Room>('Rooms', (ref) =>
       ref.orderBy('name', 'asc')
-    ); //order by alphabet
+    );
 
     this.rooms = this.roomsCollection.snapshotChanges().pipe(
       map((changes) => {

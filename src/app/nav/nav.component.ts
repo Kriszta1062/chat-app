@@ -7,8 +7,6 @@ import { AuthService } from '../services/auth.service';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 
-//FlashMessageModule
-
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',

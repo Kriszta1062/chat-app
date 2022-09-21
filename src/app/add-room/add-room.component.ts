@@ -10,7 +10,6 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 })
 export class AddRoomComponent implements OnInit {
   faTimes = faTimes;
-
   @Input() addButtonActive?: boolean;
   @Output() changedButtonActivity = new EventEmitter<boolean>();
   emailList!: string;

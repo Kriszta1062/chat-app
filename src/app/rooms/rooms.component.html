@@ -62,96 +62,91 @@
   <div class="room-type">Publik Rooms</div>
 
   <div *ngFor="let room of rooms">
-    <div class="room" *ngIf="room.access === 'public'">
-      <!-- <div class="active" *ngIf="room.active"> -->
-      <img
-        [ngStyle]="{ boxShadow: '0 0 7px black' }"
-        src="{{ room.pic }}"
-        alt="{{ room.name }}"
-      />
-      <!-- </div> -->
-      <!-- <div class="not-active" *ngIf="!room.active">
+    <div class="room-box">
+      <div class="room" *ngIf="room.access === 'public'">
         <img
-          [ngStyle]="{ boxShadow: '0 0 7px red' }"
+          [ngStyle]="{ boxShadow: '0 0 7px black' }"
           src="{{ room.pic }}"
           alt="{{ room.name }}"
         />
-      </div> -->
-      <div class="infos">
-        <div>{{ room.name }}</div>
+        <div class="infos">
+          <div>{{ room.name }}</div>
+        </div>
+        <div class="room-actions">
+          <a>
+            <i (click)="editRoom($event, room)">
+              <fa-icon
+                [ngStyle]="{ color: '#1d4226' }"
+                [icon]="faPencil"
+              ></fa-icon>
+            </i>
+          </a>
+          <a>
+            <i (click)="chooseRoom(room)">
+              <fa-icon
+                [ngStyle]="{ color: '#1d4226' }"
+                [icon]="faMessage"
+              ></fa-icon>
+            </i>
+          </a>
+        </div>
       </div>
-      <div class="room-actions">
-        <a>
-          <i (click)="editRoom($event, room)">
-            <fa-icon
-              [ngStyle]="{ color: '#1d4226' }"
-              [icon]="faPencil"
-            ></fa-icon>
-          </i>
-        </a>
-        <a>
-          <i (click)="chooseRoom(room)">
-            <fa-icon
-              [ngStyle]="{ color: '#1d4226' }"
-              [icon]="faMessage"
-            ></fa-icon>
-          </i>
-        </a>
-      </div>
-      <div *ngIf="editState && roomToEdit?.id == room.id" class="container">
-        <div class="form">
-          <i (click)="clearState()" class="close-icon">
-            <fa-icon [ngStyle]="{ color: 'red' }" [icon]="faTimes"></fa-icon>
-          </i>
-          <form (ngSubmit)="updateRoom(room)">
-            <div class="input">
-              <label>Name</label>
+        <div *ngIf="editState && roomToEdit?.id == room.id" class="settings">
+          <div class="form">
+            <i (click)="clearState()" class="close-icon">
+              <fa-icon [ngStyle]="{ color: 'red' }" [icon]="faTimes"></fa-icon>
+            </i>
+            <h3 class="title">{{room.name}}</h3>
+
+            <form (ngSubmit)="updateRoom(room)">
+              <div class="input">
+                <label>Name</label>
+                <input
+                  type="text"
+                  placeholder="Add name"
+                  [(ngModel)]="room.name"
+                  name="name"
+                />
+              </div>
+              <div class="input">
+                <label>Access</label>
+                <select
+                  id="dropdownOption"
+                  class="form-control"
+                  type="text"
+                  [(ngModel)]="room.access"
+                  name="access"
+                >
+                  <option value="public">public</option>
+                  <option value="private">private</option>
+                </select>
+              </div>
+              <div class="input">
+                <label>Picture</label>
+                <input
+                  type="text"
+                  placeholder="Add the url of a picture"
+                  [(ngModel)]="room.pic"
+                  name="pic"
+                />
+              </div>
+              <div class="input">
+                <label>Members</label>
+                <input
+                  type="text"
+                  placeholder="e-mails list (space between)"
+                  [(ngModel)]="emailList"
+                  name="members"
+                />
+              </div>
+              <input type="submit" value="Update" class="submit-button" />
               <input
-                type="text"
-                placeholder="Add name"
-                [(ngModel)]="room.name"
-                name="name"
+                (click)="deleteRoom($event, room)"
+                type="submit"
+                value="Delete"
+                class="submit-button"
               />
-            </div>
-            <div class="input">
-              <label>Access</label>
-              <select
-                id="dropdownOption"
-                class="form-control"
-                type="text"
-                [(ngModel)]="room.access"
-                name="access"
-              >
-                <option value="public">public</option>
-                <option value="private">private</option>
-              </select>
-            </div>
-            <div class="input">
-              <label>Picture</label>
-              <input
-                type="text"
-                placeholder="Add the url of a picture"
-                [(ngModel)]="room.pic"
-                name="pic"
-              />
-            </div>
-            <div class="input">
-              <label>Members</label>
-              <input
-                type="text"
-                placeholder="Add the members e-mail separated with space"
-                [(ngModel)]="emailList"
-                name="members"
-              />
-            </div>
-            <input type="submit" value="Update" class="submit-button" />
-            <input
-              (click)="deleteRoom($event, room)"
-              type="submit"
-              value="Delete"
-              class="submit-button"
-            />
-          </form>
+            </form>
         </div>
       </div>
     </div>
@@ -160,103 +155,93 @@
   <div class="room-type">Private Rooms</div>
 
   <div *ngFor="let room of rooms">
-    <div
-      class="room"
-      *ngIf="room.access === 'private' && room.members.includes(loggedInUser)"
-    >
-      <!-- <div class="active" *ngIf="room.active"> -->
-      <img
-        [ngStyle]="{ boxShadow: '0 0 7px black' }"
-        src="{{ room.pic }}"
-        alt="{{ room.name }}"
-      />
-      <!-- </div> -->
-      <!-- <div class="not-active" *ngIf="!room.active">
+    <div class="room-box">
+      <div class="room" *ngIf="room.access === 'private'">
         <img
-          [ngStyle]="{ boxShadow: '0 0 7px red' }"
+          [ngStyle]="{ boxShadow: '0 0 7px black' }"
           src="{{ room.pic }}"
           alt="{{ room.name }}"
         />
-      </div> -->
-      <div class="infos">
-        <div>{{ room.name }}</div>
+        <div class="infos">
+          <div>{{ room.name }}</div>
+        </div>
+        <div class="room-actions">
+          <a>
+            <i (click)="editRoom($event, room)">
+              <fa-icon
+                [ngStyle]="{ color: '#1d4226' }"
+                [icon]="faPencil"
+              ></fa-icon>
+            </i>
+          </a>
+          <a>
+            <i (click)="chooseRoom(room)">
+              <fa-icon
+                [ngStyle]="{ color: '#1d4226' }"
+                [icon]="faMessage"
+              ></fa-icon>
+            </i>
+          </a>
+        </div>
       </div>
-      <div class="room-actions">
-        <a>
-          <i (click)="editRoom($event, room)">
-            <fa-icon
-              [ngStyle]="{ color: '#1d4226' }"
-              [icon]="faPencil"
-            ></fa-icon>
-          </i>
-        </a>
-        <a>
-          <i (click)="chooseRoom(room)">
-            <fa-icon
-              [ngStyle]="{ color: '#1d4226' }"
-              [icon]="faMessage"
-            ></fa-icon>
-          </i>
-        </a>
-      </div>
-      <div *ngIf="editState && roomToEdit?.id == room.id" class="container">
-        <div class="form">
-          <i (click)="clearState()" class="close-icon">
-            <fa-icon [ngStyle]="{ color: 'red' }" [icon]="faTimes"></fa-icon>
-          </i>
-          <form (ngSubmit)="updateRoom(room)">
-            <div class="input">
-              <label>Name</label>
+        <div *ngIf="editState && roomToEdit?.id == room.id" class="settings">
+          <div class="form">
+            <i (click)="clearState()" class="close-icon">
+              <fa-icon [ngStyle]="{ color: 'red' }" [icon]="faTimes"></fa-icon>
+            </i>
+            <h3 class="title">{{room.name}}</h3>
+
+            <form (ngSubmit)="updateRoom(room)">
+              <div class="input">
+                <label>Name</label>
+                <input
+                  type="text"
+                  placeholder="Add name"
+                  [(ngModel)]="room.name"
+                  name="name"
+                />
+              </div>
+              <div class="input">
+                <label>Access</label>
+                <select
+                  id="dropdownOption"
+                  class="form-control"
+                  type="text"
+                  [(ngModel)]="room.access"
+                  name="access"
+                >
+                  <option value="public">public</option>
+                  <option value="private">private</option>
+                </select>
+              </div>
+              <div class="input">
+                <label>Picture</label>
+                <input
+                  type="text"
+                  placeholder="Add the url of a picture"
+                  [(ngModel)]="room.pic"
+                  name="pic"
+                />
+              </div>
+              <div class="input">
+                <label>Members</label>
+                <input
+                  type="text"
+                  placeholder="e-mails list (space between)"
+                  [(ngModel)]="emailList"
+                  name="members"
+                />
+              </div>
+              <input type="submit" value="Update" class="submit-button" />
               <input
-                type="text"
-                placeholder="Add name"
-                [(ngModel)]="room.name"
-                name="name"
+                (click)="deleteRoom($event, room)"
+                type="submit"
+                value="Delete"
+                class="submit-button"
               />
-            </div>
-            <div class="input">
-              <label>Access</label>
-              <select
-                id="dropdownOption"
-                class="form-control"
-                type="text"
-                [(ngModel)]="room.access"
-                name="access"
-              >
-                <option value="public">public</option>
-                <option value="private">private</option>
-              </select>
-            </div>
-            <div class="input">
-              <label>Picture</label>
-              <input
-                type="text"
-                placeholder="Add the url of a picture"
-                [(ngModel)]="room.pic"
-                name="pic"
-              />
-            </div>
-            <div class="input">
-              <label>Members</label>
-              <input
-                type="text"
-                placeholder="Add the members e-mail separated with space"
-                [(ngModel)]="emailList"
-                name="members"
-              />
-            </div>
-            <input type="submit" value="Update" class="submit-button" />
-            <input
-              (click)="deleteRoom($event, room)"
-              type="submit"
-              value="Delete"
-              class="submit-button"
-            />
-          </form>
+            </form>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- traversi - tutorial1 35:11 ng if ellenorzes -->
 </div>
