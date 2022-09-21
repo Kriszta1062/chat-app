@@ -19,7 +19,6 @@ export class RegisterComponent implements OnInit {
     firstName: '',
     lastName: '',
     active: true,
-    rooms: [],
     pic: '',
     email: '',
   };
@@ -44,7 +43,6 @@ export class RegisterComponent implements OnInit {
         .register(this.email, this.password)
         .then((res) => {
           this.user.active = true;
-          this.user.rooms = [];
           this.userService.addUser(this.user);
 
           const sub = this.userService.getUsers().subscribe((users) => {
