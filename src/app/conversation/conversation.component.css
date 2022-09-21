@@ -1,11 +1,17 @@
+.container{
+  max-height: 700px;
+  max-width: 600px;
+}
+
 .message-area {
   padding: 15px;
-  max-height: 440px;
+  max-height: 400px;
   overflow: auto;
+  max-width: 500px;
 }
 
 .cover {
-  max-width: 500px;
+  max-width: 300px;
 }
 
 .profile {
@@ -25,7 +31,8 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  width: 500px;
+  min-width: 180px;
+  max-width: 400px;
 }
 
 .texts {

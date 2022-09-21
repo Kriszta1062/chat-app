@@ -5,8 +5,8 @@
 }
 
 img {
-  width: 200px;
-  border-radius: 100px;
+  max-width: 200px;
+  border-radius: 1000px;
   box-shadow: 0 0 10px rgb(0, 0, 0);
 }
 

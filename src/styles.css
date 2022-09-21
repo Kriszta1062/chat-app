@@ -10,6 +10,7 @@ body {
   flex-direction: column;
   margin: 30px;
   padding: 20px;
+  max-width: 350px;
 }
 
 .main {
@@ -18,4 +19,11 @@ body {
   padding: 10px;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 1250px){
+  .main{
+    justify-content: center;
+  }
+  
 }

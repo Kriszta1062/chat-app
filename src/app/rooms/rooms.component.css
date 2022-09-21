@@ -136,14 +136,10 @@ label {
   align-items: center;
 }
 
-.close-icon {
-  display: flex;
-  justify-content: right;
+.close-btn {
+ cursor: pointer;
 }
 
-.container {
-  width: 350px;
-}
 
 .room-type {
   display: flex;
