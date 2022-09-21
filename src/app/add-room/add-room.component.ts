@@ -43,6 +43,7 @@ export class AddRoomComponent implements OnInit {
 
       // this.room.active = true;
     }
+    this.buttonChange();
   }
 
   buttonChange() {
