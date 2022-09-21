@@ -1,5 +1,5 @@
 <div class="container">
-  <i (click)="clearAddState()" class="close-icon">
+  <i (click)="buttonChange()" class="close-icon">
     <fa-icon [ngStyle]="{ color: 'red' }" [icon]="faTimes"></fa-icon>
   </i>
   <h3 class="title">Create a new room</h3>
@@ -41,7 +41,7 @@
         <input
           type="text"
           placeholder="Add the members e-mail separated with space"
-          [(ngModel)]="room.members"
+          [(ngModel)]="emailList"
           name="members"
         />
       </div>
