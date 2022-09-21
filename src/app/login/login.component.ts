@@ -27,18 +27,20 @@ export class LoginComponent implements OnInit {
     
   }
 
-  onSubmit(){ // pop up messages needed
+  onSubmit(){ // pop up messages missing
     this.authService.login(this.email, this.password).then((res) => {
-      this.userService.getUsers().pipe(first()).subscribe((users) => {
+      const sub = this.userService.getUsers().subscribe((users) => {
+        sub.unsubscribe();
         const user = users.find((u) => u.email === this.email);
        this.userService.currentUser = user;
-       this.userService.updateUserActivityStatus(true);
-      })
+       if(user?.active === false){
+        this.userService.updateUserActivityStatus(true);
+       }
+      });
       this.router.navigate(['/profile'])      
     })
     .catch(err => {
       console.log(err);
-      
     });
   }
 

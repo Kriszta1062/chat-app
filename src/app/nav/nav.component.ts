@@ -42,10 +42,11 @@ export class NavComponent implements OnInit {
   }
 
   onLogoutClick(){
-    this.userService.updateUserActivityStatus(false);
-    this.authService.logout();
-    this.router.navigate(['/']);
-    this.userService.currentUser = undefined;
+    this.userService.updateUserActivityStatus(false).then(() => {
+      this.userService.currentUser = undefined;
+      this.authService.logout();
+      this.router.navigate(['/']);
+    });
   }
 
 }
