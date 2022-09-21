@@ -11,8 +11,6 @@ import { first } from 'rxjs';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  // auth = getAuth();
-
   email!: string;
   password!: string;
   error?: string;
@@ -35,39 +33,34 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    // pop up messages needed
-
-    this.authService
-      .register(this.email, this.password)
-      .then((res) => {
-        this.userService
-          .getUsers()
-          .pipe(first())
-          .subscribe((users) => {
-            const user = users.find((u) => u.email === this.email);
-            if (user) {
-              this.error = 'Your e-mail address must be unique!';
-            }
-          });
-        if (
-          this.user.firstName != '' &&
-          this.user.lastName != '' &&
-          this.user.pic != '' &&
-          this.user.email != ''
-        ) {
-          this.userService.addUser(this.user);
-          this.user.firstName = '';
-          this.user.lastName = '';
+    // pop up messages missing
+    if (
+      this.user.firstName != '' &&
+      this.user.lastName != '' &&
+      this.user.pic != '' &&
+      this.user.email != ''
+    ) {
+      this.authService
+        .register(this.email, this.password)
+        .then((res) => {
           this.user.active = true;
           this.user.rooms = [];
-          this.user.pic = '';
-          this.user.email = '';
-        }
-        this.userService.updateUserActivityStatus(true);
-        this.router.navigate(['/profile']);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+          this.userService.addUser(this.user);
+
+          const sub = this.userService.getUsers().subscribe((users) => {
+            sub.unsubscribe();
+            const user = users.find((u) => u.email === this.email);
+            this.userService.currentUser = user;
+          });
+          this.router.navigate(['/profile']);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      this.error = 'All field must be filled!'
+      console.log(this.error);
+      
+    }
   }
 }
