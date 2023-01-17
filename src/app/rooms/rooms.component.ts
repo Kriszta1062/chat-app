@@ -22,7 +22,9 @@ export class RoomsComponent implements OnInit {
   faMessage = faMessage;
 
   rooms: Room[] = [];
-  editState: boolean = false;
+  editStatePublic: boolean = false;
+  editStatePrivate: boolean = false;
+
   roomToEdit?: Room;
   users: User[] = [];
   addButtonActive: boolean = false;
@@ -52,21 +54,25 @@ export class RoomsComponent implements OnInit {
   }
 
   editRoom(event: any, room: Room) {
-    this.editState = true;
+    if (room.access === 'public') {
+      this.editStatePublic = true;
+    } else {
+      this.editStatePrivate = true;
+    }
     this.roomToEdit = room;
   }
 
   updateRoom(room: Room) {
-    if(this.emailList){
-      room.members.push(this.emailList)
-
+    if (this.emailList) {
+      room.members.push(this.emailList);
     }
     this.roomService.updateRoom(room);
     this.clearState();
   }
 
   clearState() {
-    this.editState = false;
+    this.editStatePublic = false;
+    this.editStatePrivate = false;
     this.roomToEdit = undefined;
   }
 
